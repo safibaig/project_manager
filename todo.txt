@@ -1,0 +1,30 @@
+Proyecto:
+Nombre
+Cliente
+Corp Rep
+SBU
+ProjectManager
+Real status
+Ideal status
+Lead Source
+Estimacion
+Fecha del registro del proyecto
+Contacto del cliente
+Proveedor
+Colaboradores
+Ingresos potenciales
+Ingresos generados
+unidad de negocio
+
+
+Usuario:
+
+
+Prospecto:
+
+
+Empleado:
+
+Comentario:
+
+Cliente:
