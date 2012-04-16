@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  client_id: 1
+  user_id: 1
+  business_unit_id: 1
+  project_manager: MyString
+  real_status: 1
+  ideal_status: 1
+  lead_source: MyString
+  estimation: 9.99
+
+two:
+  name: MyString
+  client_id: 1
+  user_id: 1
+  business_unit_id: 1
+  project_manager: MyString
+  real_status: 1
+  ideal_status: 1
+  lead_source: MyString
+  estimation: 9.99
