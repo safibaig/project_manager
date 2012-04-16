@@ -1,0 +1,35 @@
+<br />
+<div class="row">
+	<div class="span5 offset4">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well form-horizontal", :id => "sign_in"}) do |f| %>
+
+		<fieldset>
+			<legend>Iniciar sesión</legend>
+			<div class="control-group">
+				<%= f.label :email, "Correo Electrónico", :class => "control-label" %>
+				<div class="controls">
+					<%= f.email_field :email, :class => "input-xlarge" %>
+				</div>
+			</div>
+			<div class="control-group">
+				<%= f.label :password, "Contraseña", :class => "control-label" %>
+				<div class="controls">
+					<%= f.password_field :password,  :class => "input-xlarge" %>
+				</div>
+			</div>
+		</fieldset>  
+
+		  <% if devise_mapping.rememberable? -%>
+			<div class="control-group">
+				<div class="controls">
+					<%= f.label :remember_me, "#{f.check_box :remember_me} Recuerdame".html_safe, :class => "checkbox" %>
+				</div>
+			</div>
+		  <% end -%>
+
+			<div class="form-actions reset-margins-bottom">
+				<%= f.submit "Iniciar sesión", :class => "btn btn-warning btn-large btn-signin" %>
+			</div>
+		<% end %>
+	</div>
+</div>
