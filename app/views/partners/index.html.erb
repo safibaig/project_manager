@@ -1,0 +1,41 @@
+<%- model_class = Partner.new.class -%>
+<h1>List of partners</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>Partner</th>
+      <th>Agregado por</th>
+      <th>Status</th>
+      <th>Business type</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Address</th>
+	  <th>Fecha de alta</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @partners.each do |partner| %>
+      <tr>
+	    <td><%= link_to partner.partner_name, partner %></td>
+        <td><%= partner.user_id %></td>
+        <td><%= partner.status %></td>
+        <td><%= partner.business_type %></td>
+        <td><%= partner.name %></td>
+        <td><%= partner.phone %></td>
+        <td><%= partner.email %></td>
+        <td><%= partner.website %></td>
+        <td><%= partner.address %></td>
+        <td><%= partner.created_at.strftime("%b %d, %Y") %></td>
+        <td>
+          <%= link_to "Edit", edit_partner_path(partner), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy",partner_path(partner), :method => :delete, :confirm => "Are you sure?",:class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New partner", new_partner_path, :class => 'btn btn-primary' %>

@@ -1,7 +1,6 @@
 ProjectManager::Application.routes.draw do
  
 
- 
 
   resources :clients
 
@@ -15,5 +14,6 @@ ProjectManager::Application.routes.draw do
   
   resources :projects
   resources :prospects
+  resources :partners
 
 end
