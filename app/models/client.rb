@@ -18,7 +18,7 @@
 class Client < ActiveRecord::Base
   has_many :projects
   
-  validates :business_type, :business_unit_id, :name, :phone, :email,
+  validates :business_type, :business_unit, :name, :phone, :email,
             :website, :address, :presence => true
   
   scope :all, where("type != ?", "Prospect")  

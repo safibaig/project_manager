@@ -1,6 +1,6 @@
 class ProspectsController < ApplicationController
   
-  add_breadcrumb "Prospects", "/prospects"
+  add_breadcrumb "Prospects", "/prospects", :except => :index
   add_breadcrumb "New prospect", "",  :only => [:new, :create]
   add_breadcrumb "Editing prospect","", :only => [:edit, :update]
   

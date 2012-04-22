@@ -6,7 +6,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:client_id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:business_unit_id) %></th>
+      <th><%= model_class.human_attribute_name(:business_unit) %></th>
       <th><%= model_class.human_attribute_name(:project_manager) %></th>
       <th><%= model_class.human_attribute_name(:real_status) %></th>
       <th><%= model_class.human_attribute_name(:ideal_status) %></th>
@@ -22,7 +22,7 @@
         <td><%= link_to project.name, project %></td>
         <td><%= project.client_id %></td>
         <td><%= project.user_id %></td>
-        <td><%= project.business_unit_id %></td>
+        <td><%= project.business_unit %></td>
         <td><%= project.project_manager %></td>
         <td><%= project.real_status %></td>
         <td><%= project.ideal_status %></td>

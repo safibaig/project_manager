@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   
-  add_breadcrumb "Projects", "/projects"
+  add_breadcrumb "Projects", "/projects", :except => :index
   add_breadcrumb "New project", "",  :only => [:new, :create]
   add_breadcrumb "Editing project","", :only => [:edit, :update]
   

@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:business_type) %></th>
-      <th><%= model_class.human_attribute_name(:business_unit_id) %></th>
+      <th><%= model_class.human_attribute_name(:business_unit) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
       <th><%= model_class.human_attribute_name(:mobile) %></th>
@@ -19,7 +19,7 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= link_to client.business_type, client %></td>
-        <td><%= client.business_unit_id %></td>
+        <td><%= client.business_unit %></td>
         <td><%= client.name %></td>
         <td><%= client.phone %></td>
         <td><%= client.mobile %></td>

@@ -11,3 +11,9 @@ User.create(:email => "kuri@invomex.com",
             :password_confirmation => "invomex",
             :name => "Abraham",
             :last_name => "Kuri Vargas")
+
+BusinessUnit.create(:name => "Invomex")
+BusinessUnit.create(:name => "Invosoft")
+BusinessUnit.create(:name => "Invograph")
+BusinessUnit.create(:name => "Invotech")
+BusinessUnit.create(:name => "Invotrucks")

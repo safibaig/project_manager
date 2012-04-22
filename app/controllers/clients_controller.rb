@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   before_filter :authenticate_user!
 
-  add_breadcrumb "Clients", "/clients"
+  add_breadcrumb "Clients", "/clients", :except => :index
   add_breadcrumb "New client", "",  :only => [:new, :create]
   add_breadcrumb "Editing client","", :only => [:edit, :update]
 
