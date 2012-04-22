@@ -1,12 +1,17 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   
+  add_breadcrumb "Projects", "/projects"
+  add_breadcrumb "New project", "",  :only => [:new, :create]
+  add_breadcrumb "Editing project","", :only => [:edit, :update]
+  
   def index
     @projects = Project.all
   end
 
   def show
     @project = Project.find(params[:id])
+    add_breadcrumb "#{@project.name}"
   end
 
   def new

@@ -1,6 +1,8 @@
 ProjectManager::Application.routes.draw do
  
 
+ 
+
   resources :clients
 
   devise_for :users do
@@ -12,5 +14,6 @@ ProjectManager::Application.routes.draw do
   match 'home' => 'pages#home', :as => :home
   
   resources :projects
+  resources :prospects
 
 end

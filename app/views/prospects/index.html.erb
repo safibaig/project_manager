@@ -1,0 +1,46 @@
+
+<h1>Listado de prospectos</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Business type</th>
+      <th>Business unit</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Address</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prospects.each do |prospect| %>
+      <tr>
+        <td><%= link_to prospect.business_type, prospect %></td>
+        <td><%= prospect.business_unit_id %></td>
+        <td><%= prospect.name %></td>
+        <td><%= prospect.phone %></td>
+        <td><%= prospect.mobile %></td>
+        <td><%= prospect.email %></td>
+        <td><%= prospect.website %></td>
+        <td><%= prospect.address %></td>
+        <td><%= prospect.created_at.strftime("%b %d, %Y") %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_prospect_path(prospect), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      prospect_path(prospect),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_prospect_path,
+            :class => 'btn btn-primary' %>

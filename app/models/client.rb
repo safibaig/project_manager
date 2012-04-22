@@ -21,5 +21,6 @@ class Client < ActiveRecord::Base
   validates :business_type, :business_unit_id, :name, :phone, :email,
             :website, :address, :presence => true
   
+  scope :all, where("type != ?", "Prospect")  
   
 end
