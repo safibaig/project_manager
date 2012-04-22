@@ -1,11 +1,16 @@
 class PartnersController < ApplicationController
   
+  add_breadcrumb "Partners", "/partners", :except => :index
+  add_breadcrumb "New partner", "",  :only => [:new, :create]
+  add_breadcrumb "Editing partner","", :only => [:edit, :update]
+  
   def index
     @partners = Partner.all
   end
 
   def show
     @partner = Partner.find(params[:id])
+    add_breadcrumb "#{@partner.partner_name}"
   end
 
   def new
