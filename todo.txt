@@ -28,3 +28,58 @@ Empleado:
 Comentario:
 
 Cliente:
+
+
+Prospecto ->
+	Intereses por business unit
+	Diseño gráfico
+	Software
+	Diseño Industrial
+	Planeación de negocios
+	Investigación y desarrollo
+	
+	Nombre de empresa
+	Nombre de contacto
+	
+	Address no necesario
+	
+	Status:
+		2 semanas en amarillo
+		3 semanas en rojo
+		
+	Edit
+	Make client
+	Not interested
+	
+Cliente ->
+	Intereses por business unit
+	Nombre de empresa 
+	Nombre de contacto
+	
+Proyecto ->
+	Unidad de negocio - Facebook theme
+	Suppliers - Facebook theme
+	Cliente requerido	
+	Unidad de negocio
+	Lead source - Facebook theme
+
+Sources ->
+	Name
+
+Supplier ->
+	Nombre de la empresa
+	Nombre de contacto
+	¿Que vende?:
+		Diseño gráfico
+		Software
+		Diseño Industrial
+		Planeación de negocios
+		Investiogación y desarrollo
+	Donde esta
+	Telefono
+	Email
+	Cuenta bancaria
+	Comentarios
+	Archivo (varios)
+	Rating interno
+	

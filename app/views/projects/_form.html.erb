@@ -2,13 +2,12 @@
   
   	<%= f.input :name %>
 	<%= f.input :client_id  %>
+	<%= f.input :business_unit_id %>
 	<%= f.input :user_id %>
-	<%= f.input :business_unit %>
 	<%= f.input :project_manager %>
-	<%= f.input :real_status %>
-	<%= f.input :ideal_status %>
-	<%= f.input :lead_source %>
+	<%= f.input :status %>
 	<%= f.input :estimation %>
+	<%= f.input :lead_source %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

@@ -6,7 +6,7 @@
 #  name             :string(255)
 #  client_id        :integer
 #  user_id          :integer
-#  business_unit_id :integer
+#  business_unit_id :string(255)
 #  project_manager  :string(255)
 #  real_status      :integer
 #  ideal_status     :integer
@@ -20,10 +20,10 @@ class Project < ActiveRecord::Base
   
   belongs_to :client
   
-  validates :name, :project_manager, :real_status, :ideal_status,
+  validates :name, :project_manager, :status,
             :lead_source, :estimation, :presence => true
   
-  validates :estimation, :ideal_status, :real_status, :numericality => true
+  validates :estimation, :status, :numericality => true
   
   
 end

@@ -14,6 +14,6 @@ ProjectManager::Application.routes.draw do
   
   resources :projects
   resources :prospects
-  resources :partners
+  resources :suppliers
 
 end

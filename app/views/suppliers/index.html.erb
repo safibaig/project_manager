@@ -1,0 +1,38 @@
+<fieldset id="list_of_suppliers" class="">
+	<legend>List of Suppliers</legend>
+</fieldset>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+	  <th>Company Name</th>
+      <th>Contact Name</th>
+      <th>¿What it sells?</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Bank Account</th>
+	  <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @suppliers.each do |supplier| %>
+      <tr>
+	    <td><%= link_to supplier.company_name, supplier %></td>
+        <td><%= supplier.contact_name %></td>
+        <td><%= supplier.business_type %></td>
+        <td><%= supplier.address %></td>
+        <td><%= supplier.phone %></td>
+        <td><%= supplier.email %></td>
+        <td><%= supplier.bank_account %></td>
+        <td><%= supplier.created_at.strftime("%b %d, %Y") %></td>
+        <td>
+          <%= link_to "Edit", edit_supplier_path(supplier), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy",supplier, :method => :delete, :confirm => "Are you sure?",:class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New supplier", new_supplier_path, :class => 'btn btn-primary' %>

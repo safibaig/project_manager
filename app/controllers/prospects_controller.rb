@@ -10,7 +10,7 @@ class ProspectsController < ApplicationController
 
   def show
     @prospect = Prospect.find(params[:id])
-    add_breadcrumb "#{@prospect.name}"
+    add_breadcrumb "#{@prospect.company_name}"
   end
 
   def new

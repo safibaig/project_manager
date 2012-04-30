@@ -2,25 +2,25 @@
 #
 # Table name: clients
 #
-#  id               :integer         not null, primary key
-#  business_type    :string(255)
-#  business_unit_id :integer
-#  name             :string(255)
-#  phone            :string(255)
-#  mobile           :string(255)
-#  email            :string(255)
-#  website          :string(255)
-#  address          :text
-#  created_at       :datetime        not null
-#  updated_at       :datetime        not null
+#  id            :integer         not null, primary key
+#  business_type :string(255)
+#  interests     :string(255)
+#  company_name  :string(255)
+#  contact_name  :string(255)
+#  phone         :string(255)
+#  mobile        :string(255)
+#  email         :string(255)
+#  website       :string(255)
+#  address       :text
+#  created_at    :datetime        not null
+#  updated_at    :datetime        not null
 #
 
 class Client < ActiveRecord::Base
   has_many :projects
   
-  validates :business_type, :business_unit, :name, :phone, :email,
-            :website, :address, :presence => true
-  
-  scope :all, where("type != ?", "Prospect")  
+  validates :business_type, :interests, :company_name, 
+            :contact_name, :phone, :mobile, :email,
+            :presence => true 
   
 end

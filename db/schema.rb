@@ -21,25 +21,11 @@ ActiveRecord::Schema.define(:version => 20120422043445) do
 
   create_table "clients", :force => true do |t|
     t.string   "business_type"
-    t.string   "business_unit"
-    t.string   "name"
+    t.string   "interests"
+    t.string   "company_name"
+    t.string   "contact_name"
     t.string   "phone"
     t.string   "mobile"
-    t.string   "email"
-    t.string   "website"
-    t.text     "address"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.string   "type",          :default => "Client", :null => false
-  end
-
-  create_table "partners", :force => true do |t|
-    t.string   "partner_name"
-    t.integer  "user_id"
-    t.string   "status"
-    t.string   "business_type"
-    t.string   "name"
-    t.string   "phone"
     t.string   "email"
     t.string   "website"
     t.text     "address"
@@ -51,14 +37,39 @@ ActiveRecord::Schema.define(:version => 20120422043445) do
     t.string   "name"
     t.integer  "client_id"
     t.integer  "user_id"
-    t.string   "business_unit"
+    t.integer  "business_unit_id"
     t.string   "project_manager"
-    t.integer  "real_status"
-    t.integer  "ideal_status"
+    t.integer  "status"
     t.string   "lead_source"
     t.decimal  "estimation"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "prospects", :force => true do |t|
+    t.string   "business_type"
+    t.string   "interests"
+    t.string   "company_name"
+    t.string   "contact_name"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "website"
+    t.text     "address"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "suppliers", :force => true do |t|
+    t.string   "company_name"
+    t.string   "contact_name"
+    t.string   "business_type"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "bank_account"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

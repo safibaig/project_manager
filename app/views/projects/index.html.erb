@@ -1,19 +1,19 @@
-<%- model_class = Project.new.class -%>
-<h1>List of projects</h1>
-<table class="table table-striped">
+<fieldset id="list_of_projects" class="">
+	<legend>List of Projects</legend>
+</fieldset>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:client_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:business_unit) %></th>
-      <th><%= model_class.human_attribute_name(:project_manager) %></th>
-      <th><%= model_class.human_attribute_name(:real_status) %></th>
-      <th><%= model_class.human_attribute_name(:ideal_status) %></th>
-      <th><%= model_class.human_attribute_name(:lead_source) %></th>
-      <th><%= model_class.human_attribute_name(:estimation) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Name</th>
+      <th>Client</th>
+      <th>Added by</th>
+      <th>Business Unit</th>
+      <th>Project Manager</th>
+      <th>Status</th>
+      <th>Lead Source</th>
+      <th>Estimation</th>
+      <th>Created at</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -22,10 +22,9 @@
         <td><%= link_to project.name, project %></td>
         <td><%= project.client_id %></td>
         <td><%= project.user_id %></td>
-        <td><%= project.business_unit %></td>
+        <td><%= project.business_unit_id %></td>
         <td><%= project.project_manager %></td>
-        <td><%= project.real_status %></td>
-        <td><%= project.ideal_status %></td>
+        <td><%= project.status %></td>
         <td><%= project.lead_source %></td>
         <td><%= project.estimation %></td>
         <td><%= project.created_at.strftime("%b %d, %Y") %></td>

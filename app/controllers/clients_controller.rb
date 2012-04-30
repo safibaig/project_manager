@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
-    add_breadcrumb "#{@client.name}"
+    add_breadcrumb "#{@client.company_name}"
   end
 
   def new
@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(params[:client])
     if @client.save
-      redirect_to clients_path, :success => 'Client was successfully created.'
+      redirect_to clients_path, :flash => {:success => 'Client was successfully created.'}
     else
       render :action => "new"
     end
@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
   def update
     @client = Client.find(params[:id])
     if @client.update_attributes(params[:client]) 
-      redirect_to clients_path, :success => 'Client was successfully updated.'
+      redirect_to clients_path, :flash => {:success => 'Client was successfully updated.'}
     else
       render :action => "edit"
     end
@@ -43,6 +43,6 @@ class ClientsController < ApplicationController
   def destroy
     @client = Client.find(params[:id])
     @client.destroy
-    redirect_to clients_url
+    redirect_to clients_url,:flash => {:success => 'Client was successfully destroyed.'}
   end
 end

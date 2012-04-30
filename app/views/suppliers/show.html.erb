@@ -1,12 +1,14 @@
-<h1><%= @client.company_name %></h1>
+<fieldset id="" class="">
+	<legend><%= @supplier.company_name %></legend>
+</fieldset>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              clients_path, :class => 'btn'  %>
+              suppliers_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_client_path(@client), :class => 'btn' %>
+              edit_supplier_path(@supplier), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              client_path(@client),
+              @supplier,
               :method => 'delete',
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>
