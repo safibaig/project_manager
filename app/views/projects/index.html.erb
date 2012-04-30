@@ -20,9 +20,9 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= link_to project.name, project %></td>
-        <td><%= project.client_id %></td>
-        <td><%= project.user_id %></td>
-        <td><%= project.business_unit_id %></td>
+        <td><%= project.client %></td>
+        <td><%= project.user %></td>
+        <td><%= project.business_unit %></td>
         <td><%= project.project_manager %></td>
         <td><%= project.status %></td>
         <td><%= project.lead_source %></td>

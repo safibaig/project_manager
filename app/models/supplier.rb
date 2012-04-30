@@ -16,10 +16,23 @@
 
 class Supplier < ActiveRecord::Base
   
-  attr_accessible :company_name, :contact_name, :business_type,
+  has_many :sellings
+  has_many :business_units, :through => :sellings
+  
+  attr_reader :business_unit_tokens
+  
+  attr_accessible :company_name, :contact_name, :business_unit_tokens,
                   :address, :phone, :email, :bank_account
   
-  validates :company_name, :contact_name, :business_type,
+  validates :company_name, :contact_name,
             :address, :phone, :email, :bank_account, :presence => true
+
+  def business_unit_tokens=(ids)
+    self.business_unit_ids = ids.split(",")
+  end
+
+  def business_unit_sellings
+    self.business_units.map(&:name)
+  end
 
 end

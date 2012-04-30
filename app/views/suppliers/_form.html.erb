@@ -2,7 +2,7 @@
   
   	<%= f.input :company_name %>
 	<%= f.input :contact_name  %>
-	<%= f.input :business_type %>
+	<%= f.input :business_unit_tokens, :input_html => { :class => "generic", 'data-interests' => prepopulate_interests(@supplier) } %>
 	<%= f.input :address %>
 	<%= f.input :phone %>
 	<%= f.input :email %>

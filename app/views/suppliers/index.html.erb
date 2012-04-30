@@ -20,7 +20,7 @@
       <tr>
 	    <td><%= link_to supplier.company_name, supplier %></td>
         <td><%= supplier.contact_name %></td>
-        <td><%= supplier.business_type %></td>
+        <td><%= supplier.business_unit_sellings.to_sentence %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.phone %></td>
         <td><%= supplier.email %></td>

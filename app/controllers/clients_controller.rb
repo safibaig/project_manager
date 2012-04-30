@@ -6,7 +6,11 @@ class ClientsController < ApplicationController
   add_breadcrumb "Editing client","", :only => [:edit, :update]
 
   def index
-    @clients = Client.all
+    @clients = Client.where("company_name LIKE ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @clients.map(&:attributes) }
+    end
   end
 
   def show

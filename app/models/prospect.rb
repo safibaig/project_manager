@@ -17,7 +17,24 @@
 #
 
 class Prospect < ActiveRecord::Base
-  validates :business_type, :interests, :company_name, 
+  
+  has_many :interests
+  has_many :business_units, :through => :interests
+  
+  attr_reader :business_unit_tokens
+  
+  validates :business_type, :company_name, 
             :contact_name, :phone, :mobile, :email,
             :presence => true
+  
+  attr_accessible :business_type, :company_name, :contact_name,
+                  :phone, :mobile, :email, :website, :address, :business_unit_tokens
+  
+  def business_unit_tokens=(ids)
+    self.business_unit_ids = ids.split(",")
+  end
+  
+  def business_unit_interests
+    self.business_units.map(&:name)
+  end
 end

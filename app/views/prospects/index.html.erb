@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to prospect.company_name, prospect %></td>
         <td><%=prospect.business_type %></td>
-        <td><%=prospect.interests %></td>
+        <td><%=prospect.business_unit_interests.to_sentence %></td>
         <td><%=prospect.contact_name %></td>
         <td><%=prospect.phone %></td>
         <td><%=prospect.mobile %></td>

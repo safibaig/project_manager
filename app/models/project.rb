@@ -19,6 +19,8 @@
 class Project < ActiveRecord::Base
   
   belongs_to :client
+  belongs_to :business_unit
+  belongs_to :user
   
   validates :name, :project_manager, :status,
             :lead_source, :estimation, :presence => true

@@ -1,7 +1,6 @@
 <fieldset id="clients" class="">
 	<legend>List of Clients</legend>
 </fieldset>
-<br />
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
@@ -20,7 +19,7 @@
       <tr>
         <td><%= link_to client.company_name, client %></td>
         <td><%= client.business_type %></td>
-        <td><%= client.interests %></td>
+        <td><%= client.business_unit_interests.to_sentence %></td>
         <td><%= client.contact_name %></td>
         <td><%= client.phone %></td>
         <td><%= client.mobile %></td>

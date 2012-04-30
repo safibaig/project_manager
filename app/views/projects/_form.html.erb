@@ -1,13 +1,13 @@
 <%= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
   
-  	<%= f.input :name %>
-	<%= f.input :client_id  %>
-	<%= f.input :business_unit_id %>
-	<%= f.input :user_id %>
-	<%= f.input :project_manager %>
-	<%= f.input :status %>
-	<%= f.input :estimation %>
-	<%= f.input :lead_source %>
+  	<%= f.input :name, :input_html => { :class => "generic" } %>
+	<%= f.input :client_id, :input_html => { "data-client" => data_client(@project.client) } %>
+	<%= f.input :business_unit_id, :input_html => {"data-business_unit" => data_business_unit(@project.business_unit)} %>
+	<%= f.input :user_id, :input_html => {"data-sales-rep" => data_sales_rep(@project.user)} %>
+	<%= f.input :project_manager, :input_html => {"data-pm" => data_pm(@project.user)} %>
+	<%= f.input :status, :input_html => { :class => "generic" } %>
+	<%= f.input :estimation, :input_html => { :class => "generic" } %>
+	<%= f.input :lead_source, :input_html => { :class => "generic" } %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
