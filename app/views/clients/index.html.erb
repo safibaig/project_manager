@@ -1,39 +1,43 @@
-<fieldset id="clients" class="">
-	<legend>List of Clients</legend>
-</fieldset>
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Company Name</th>
-      <th>Business Type</th>
-      <th>Interests</th>
-	  <th>Contact Name</th>
-      <th>Phone</th>
-	  <th>Mobile</th>
-      <th>Email</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= link_to client.company_name, client %></td>
-        <td><%= client.business_type %></td>
-        <td><%= client.business_unit_interests.to_sentence %></td>
-        <td><%= client.contact_name %></td>
-        <td><%= client.phone %></td>
-        <td><%= client.mobile %></td>
-        <td><%= client.email %></td>
-        <td>
-          <%= link_to "Edit", edit_client_path(client), :class => 'btn btn-mini' %>
-          <%= link_to "Destroy", client_path(client),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row-fluid">
+	<fieldset id="clients" class="">
+		<legend>List of Clients</legend>
+	</fieldset>
+	<br />
+	<table class="table table-striped table-bordered">
+	  <thead>
+	    <tr>
+	      <th>Company Name</th>
+	      <th>Business Type</th>
+	      <th>Interests</th>
+		  <th>Contact Name</th>
+	      <th>Phone</th>
+		  <th>Mobile</th>
+	      <th>Email</th>
+	      <th>Actions</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @clients.each do |client| %>
+	      <tr>
+	        <td><%= link_to client.company_name, client %></td>
+	        <td><%= client.business_type %></td>
+	        <td><%= client.business_unit_interests.to_sentence %></td>
+	        <td><%= client.contact_name %></td>
+	        <td><%= client.phone %></td>
+	        <td><%= client.mobile %></td>
+	        <td><%= client.email %></td>
+	        <td>
+	          <%= link_to "Edit", edit_client_path(client), :class => 'btn btn-mini' %>
+	          <%= link_to "Destroy", client_path(client),
+	                      :method => :delete,
+	                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                      :class => 'btn btn-mini btn-danger' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
 
-<%= link_to "New client", new_client_path, :class => 'btn btn-primary' %>
+	<%= link_to "New client", new_client_path, :class => 'btn btn-primary' %>
+	
+</div>
