@@ -1,6 +1,6 @@
 <br />
 <div class="row">
-	<div class="span5 offset4">
+	<div class="span6 offset3">
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "well form-horizontal", :id => "sign_in"}) do |f| %>
 
 		<fieldset>
@@ -28,7 +28,7 @@
 		  <% end -%>
 
 			<div class="form-actions reset-margins-bottom">
-				<%= f.submit "Iniciar sesión", :class => "btn btn-warning btn-large btn-signin" %>
+				<%= f.submit "Iniciar sesión", :class => "btn btn-primary btn-large btn-signin" %>
 			</div>
 		<% end %>
 	</div>
