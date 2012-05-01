@@ -33,7 +33,7 @@ class ProspectsController < ApplicationController
   def update
     @prospect = Prospect.find(params[:id])
     if @prospect.update_attributes(params[:prospect])
-      redirect_to prospects_path, :success => 'Prospect was successfully updated.' 
+      redirect_to prospects_path, :flash => {:success => 'Prospect was successfully updated.' }
     else
       render :edit
     end

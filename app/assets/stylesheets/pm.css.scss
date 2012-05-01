@@ -1,3 +1,14 @@
+@mixin rounded($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+@mixin shadow($x, $y, $s, $color) {
+  -webkit-box-shadow: $x $y $s $color;
+  box-shadow: $x $y $s $color;
+  -moz-box-shadow: $x $y $s $color;
+}
+
 table.table {
 	table-layout: fixed;
 	word-wrap:break-word;
@@ -17,10 +28,12 @@ table.table {
 
 #flash_message_wrapper {
     position: absolute;
-    top: 45px;
-    left: 50%;
-    margin-left: -70px;
+    top: 10px;
+    left: 40%;
+    margin-left: -87px;
 	z-index: 1000;
+	width:300px;
+	text-align:center;
 }
 
 .content-wrapper {
@@ -74,13 +87,15 @@ div#footer {
 	text-align:center;
 }
 
-a.dropdown-toggle:hover {
-	color:white !important;	
-	
-	b.caret {
-		border-bottom-color: #FFF !important;
-		border-top-color: #FFF !important;
-	}
+.dropdown.open .dropdown-toggle {
+	background-color:#f8f8f8;
+	color: #049cdb;
+}
+
+
+.nav .open .caret {
+	border-bottom-color: #FFF !important;
+	border-top-color: #FFF !important;
 }
 
 .generic {
@@ -91,4 +106,52 @@ a.dropdown-toggle:hover {
 
 .user-admin {
 	margin-top:10px;
+}
+
+.container {
+	margin-left:10px;
+	margin-right:auto;
+}
+
+div#user-admin-content {
+	min-height:0px;
+	border-bottom:1px solid #999;
+	margin:0px 0px 0px 0px;
+	padding:5px 0px 0px 0px;
+	@include shadow(1px, 1px, 1px, #ccc);
+	background-color:#f8f8f8;
+	position:fixed;
+	width:100%;
+}
+
+#setting-menu {
+	width:100%;
+}
+
+#flash_success {
+	border:2px solid #468847;
+}
+
+#flash_alert {
+	border:2px solid #c09853;
+}
+
+.alert {
+	@include rounded(0px);
+}
+
+img#logo {
+	margin-top:10px;
+}
+
+#main-content {
+	margin-top:30px;
+}
+
+.center {
+	margin-left:10% !important;
+}
+
+#user-settings {
+	color:#049cdb;
 }

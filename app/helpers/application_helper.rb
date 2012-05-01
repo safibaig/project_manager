@@ -12,4 +12,8 @@ module ApplicationHelper
     object.business_units.map(&:attributes).to_json
   end
   
+  def set_class_if_current_path(resource)
+     resource.split(",").each{|r| return "active" if params[:controller] == r }
+  end
+  
 end

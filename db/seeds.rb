@@ -14,22 +14,22 @@ User.create(:email => "kuri@invomex.com",
             :last_name => "Kuri Vargas",
             :rol => "Admin")
 
-User.create(:email => "daniel@invomex.com", 
+User.create(:email => "danielgzz@invomex.com", 
             :password => "invomex", 
             :password_confirmation => "invomex",
             :name => "Daniel",
             :last_name => "Gonzalez Mtz",
             :rol => "Admin")
 
-User.create(:email => "estrella@invomex.com", 
+User.create(:email => "estrella.garza@invomex.com", 
             :password => "invomex", 
             :password_confirmation => "invomex",
             :name => "Estrella",
-            :last_name => "Macarena",
+            :last_name => "Garza",
             :rol => "Employee")
 
 BusinessUnit.create(:name => "Graphic Design")
 BusinessUnit.create(:name => "Software")
 BusinessUnit.create(:name => "Industrial Design")
 BusinessUnit.create(:name => "Business Planning")
-BusinessUnit.create(:name => "Development and Research")
+BusinessUnit.create(:name => "Research and Development")
