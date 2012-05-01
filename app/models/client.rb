@@ -20,7 +20,7 @@ class Client < ActiveRecord::Base
   has_many :projects
   has_many :interests
   has_many :business_units, :through => :interests
-  
+  has_many :comments, :as => :commentable
   attr_reader :business_unit_tokens
   
   attr_accessible :business_type, :company_name, :contact_name,

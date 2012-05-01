@@ -1,6 +1,19 @@
 <fieldset id="" class="">
 	<legend><%= @project.name %></legend>
 </fieldset>
+
+<%= render @project.comments %>
+
+<fieldset id="new_comment" class="">
+	<legend>New comment</legend>
+</fieldset>
+<%= simple_form_for Comment.new do |f| %>
+	<%= f.input :content, :input_html => { :rows => 10, :cols => 20, :class => "generic" } %>
+	<%= f.hidden_field :commentable_id, :value => @project.id %>
+	<%= f.hidden_field :commentable_type, :value => "Project" %>
+  	<%= f.submit "Post comment", :class => "btn btn-success" %>
+<% end %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               projects_path, :class => 'btn'  %>

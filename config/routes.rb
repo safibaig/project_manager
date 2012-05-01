@@ -1,6 +1,8 @@
 ProjectManager::Application.routes.draw do
 
   resources :clients
+  resources :comments
+  
 
   devise_for :users do
     get "sign_in", :to => "devise/sessions#new", :as => :sign_in

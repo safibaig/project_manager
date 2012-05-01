@@ -18,7 +18,7 @@ class Supplier < ActiveRecord::Base
   
   has_many :sellings
   has_many :business_units, :through => :sellings
-  
+  has_many :comments, :as => :commentable
   attr_reader :business_unit_tokens
   
   attr_accessible :company_name, :contact_name, :business_unit_tokens,

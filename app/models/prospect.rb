@@ -20,7 +20,7 @@ class Prospect < ActiveRecord::Base
   
   has_many :interests
   has_many :business_units, :through => :interests
-  
+  has_many :comments, :as => :commentable
   attr_reader :business_unit_tokens
   
   validates :business_type, :company_name, 

@@ -2,6 +2,18 @@
 	<legend><%= @supplier.company_name %></legend>
 </fieldset>
 
+<%= render @supplier.comments %>
+
+<fieldset id="new_comment" class="">
+	<legend>New comment</legend>
+</fieldset>
+<%= simple_form_for Comment.new do |f| %>
+	<%= f.input :content, :input_html => { :rows => 10, :cols => 20, :class => "generic" } %>
+	<%= f.hidden_field :commentable_id, :value => @supplier.id %>
+	<%= f.hidden_field :commentable_type, :value => "Supplier" %>
+  	<%= f.submit "Post comment", :class => "btn btn-success" %>
+<% end %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               suppliers_path, :class => 'btn'  %>

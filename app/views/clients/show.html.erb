@@ -1,5 +1,17 @@
 <h1><%= @client.company_name %></h1>
 
+<%= render @client.comments %>
+
+<fieldset id="new_comment" class="">
+	<legend>New comment</legend>
+</fieldset>
+<%= simple_form_for Comment.new do |f| %>
+	<%= f.input :content, :input_html => { :rows => 10, :cols => 20, :class => "generic" } %>
+	<%= f.hidden_field :commentable_id, :value => @client.id %>
+	<%= f.hidden_field :commentable_type, :value => "Client" %>
+  	<%= f.submit "Post comment", :class => "btn btn-success" %>
+<% end %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               clients_path, :class => 'btn'  %>
