@@ -27,11 +27,23 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :rol
   
-  validates :name, :last_name, :presence => true
+  validates :name, :last_name, :rol, :presence => true
+  
+  scope :employees, lambda { 
+      where(:rol => "Employee")
+  }
   
   def to_s
-    self.name.capitalize
+    "#{self.name} #{self.last_name}".titleize
+  end
+  
+  def self.find_by_params(q)
+    if q.blank?
+      all
+    else
+      where("name #{LIKE} ?", "%#{q}%")
+    end 
   end
 end

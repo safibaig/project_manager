@@ -1,0 +1,12 @@
+<fieldset id="" class="">
+	<legend><%= @user %></legend>
+</fieldset>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              employees_path, :class => 'btn'  %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              employee_path(@user),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

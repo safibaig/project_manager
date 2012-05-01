@@ -11,13 +11,22 @@ User.create(:email => "kuri@invomex.com",
             :password => "invomex", 
             :password_confirmation => "invomex",
             :name => "Abraham",
-            :last_name => "Kuri Vargas")
+            :last_name => "Kuri Vargas",
+            :rol => "Admin")
 
 User.create(:email => "daniel@invomex.com", 
             :password => "invomex", 
             :password_confirmation => "invomex",
             :name => "Daniel",
-            :last_name => "Gonzalez Mtz")
+            :last_name => "Gonzalez Mtz",
+            :rol => "Admin")
+
+User.create(:email => "estrella@invomex.com", 
+            :password => "invomex", 
+            :password_confirmation => "invomex",
+            :name => "Estrella",
+            :last_name => "Macarena",
+            :rol => "Employee")
 
 BusinessUnit.create(:name => "Diseño gráfico")
 BusinessUnit.create(:name => "Software")

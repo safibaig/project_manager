@@ -28,7 +28,10 @@
 			<li><a href="#">Investigación y desarrollo</a></li>
 		</ul>
 	</li>
-	<li class="active"><a href="#"><i class="icon-user icon-white"></i> Employees</a></li>
+	<li class="active">
+					<%= link_to employees_path do %>
+					   <i class="icon-user icon-white"></i> Employees
+					<% end %></li>
 	<li class="active">
 		<%= link_to suppliers_path do %>
 			<i class="icon-envelope icon-white"></i> Suppliers

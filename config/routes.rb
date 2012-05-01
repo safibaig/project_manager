@@ -14,6 +14,7 @@ ProjectManager::Application.routes.draw do
   resources :prospects
   resources :suppliers
   resources :business_units, :only => :index
-  resources :users, :only => :index
-
+  resources :users
+  resources :employees
+  
 end

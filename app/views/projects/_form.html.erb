@@ -1,5 +1,5 @@
 <%= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
-  
+  	<%= yield(:fieldset) %>
   	<%= f.input :name, :input_html => { :class => "generic" } %>
 	<%= f.input :client_id, :input_html => { "data-client" => data_client } %>
 	<%= f.input :business_unit_id, :input_html => {"data-business_unit" => data_business_unit} %>
