@@ -28,8 +28,8 @@ User.create(:email => "estrella@invomex.com",
             :last_name => "Macarena",
             :rol => "Employee")
 
-BusinessUnit.create(:name => "Diseño gráfico")
+BusinessUnit.create(:name => "Graphic Design")
 BusinessUnit.create(:name => "Software")
-BusinessUnit.create(:name => "Diseño Industrial")
-BusinessUnit.create(:name => "Planeación de negocios")
-BusinessUnit.create(:name => "Investigación y desarrollo")
+BusinessUnit.create(:name => "Industrial Design")
+BusinessUnit.create(:name => "Business Planning")
+BusinessUnit.create(:name => "Development and Research")
