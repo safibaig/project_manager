@@ -37,3 +37,14 @@ $ ->
 		tokenValue: "name"
 		prePopulate: $('#project_project_manager').data('pm')
 	})
+	
+	$('#project_supplier_tokens').tokenInput("/suppliers.json", {
+		crossDomain: false
+		theme: "facebook"
+		hintText: "Type the suppliers"
+		prePopulate: $('#project_supplier_tokens').data('suppliers')
+		propertyToSearch: "company_name"
+		preventDuplicates: true
+	})
+	
+	

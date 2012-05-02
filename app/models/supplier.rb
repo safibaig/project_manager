@@ -20,6 +20,8 @@ class Supplier < ActiveRecord::Base
   has_many :business_units, :through => :sellings
   has_many :comments, :as => :commentable
   attr_reader :business_unit_tokens
+  has_many :employments
+  has_many :projects, :through => :employments
   
   attr_accessible :company_name, :contact_name, :business_unit_tokens,
                   :address, :phone, :email, :bank_account
@@ -33,6 +35,14 @@ class Supplier < ActiveRecord::Base
 
   def business_unit_sellings
     self.business_units.map(&:name)
+  end
+  
+  def self.find_by_params(q)
+    if q.blank?
+      all
+    else
+      where("company_name #{LIKE} ?", "%#{q}%")
+    end
   end
 
 end

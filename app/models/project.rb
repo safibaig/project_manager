@@ -22,11 +22,19 @@ class Project < ActiveRecord::Base
   belongs_to :business_unit
   belongs_to :user
   has_many :comments, :as => :commentable
+  has_many :employments
+  has_many :suppliers, :through => :employments
+  
+  attr_reader :supplier_tokens
   
   validates :name, :project_manager, :status,
             :lead_source, :estimation, :presence => true
   
   validates :estimation, :status, :numericality => true
   
+  
+  def supplier_tokens=(ids)
+    self.supplier_ids = ids.split(",")
+  end
   
 end

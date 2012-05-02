@@ -5,6 +5,7 @@
 	<%= f.input :business_unit_id, :input_html => {"data-business_unit" => data_business_unit} %>
 	<%= f.input :user_id, :input_html => {"data-sales-rep" => data_sales_rep} %>
 	<%= f.input :project_manager, :input_html => {"data-pm" => data_pm} %>
+	<%= f.input :supplier_tokens, :input_html => { "data-suppliers" => @project.suppliers.map(&:attributes).to_json } %>
 	<%= f.input :status, :input_html => { :class => "generic" } %>
 	<%= f.input :estimation, :input_html => { :class => "generic" } %>
 	<%= f.input :lead_source, :input_html => { :class => "generic" } %>

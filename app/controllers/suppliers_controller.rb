@@ -5,7 +5,11 @@ class SuppliersController < ApplicationController
   add_breadcrumb "Editing supplier","", :only => [:edit, :update]
   
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.find_by_params(params[:q])
+    respond_to do |format|
+      format.html
+      format.json {render :json => @suppliers.map(&:attributes)}  
+    end
   end
 
   def show
