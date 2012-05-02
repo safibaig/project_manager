@@ -37,4 +37,12 @@ class Prospect < ActiveRecord::Base
   def business_unit_interests
     self.business_units.map(&:name)
   end
+  
+  def self.search(params={})
+    if params[:search].present?
+      where("company_name #{LIKE} ?", "%#{params[:search]}%")
+    else
+      all
+    end
+  end
 end

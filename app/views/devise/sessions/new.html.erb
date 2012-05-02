@@ -1,5 +1,5 @@
 <div id="sign_in_form">
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:autocomplete => "off"}) do |f| %>
 	<fieldset>
 		<legend>Welcome to InvoManager</legend>
 	</fieldset> 

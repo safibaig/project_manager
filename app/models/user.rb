@@ -46,4 +46,12 @@ class User < ActiveRecord::Base
       where("name #{LIKE} ?", "%#{q}%")
     end 
   end
+  
+  def self.search(params)
+    if params[:search].present?
+      where("name #{LIKE} ?", "%#{params[:search]}%").employees
+    else
+      employees
+    end
+  end
 end

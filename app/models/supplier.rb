@@ -37,11 +37,11 @@ class Supplier < ActiveRecord::Base
     self.business_units.map(&:name)
   end
   
-  def self.find_by_params(q)
-    if q.blank?
-      all
+  def self.find_by_params(params={})
+    if params[:search].present?
+      where("company_name #{LIKE} ?", "%#{params[:search]}%")
     else
-      where("company_name #{LIKE} ?", "%#{q}%")
+      all
     end
   end
 

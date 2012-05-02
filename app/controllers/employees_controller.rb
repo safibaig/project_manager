@@ -1,7 +1,10 @@
 class EmployeesController < ApplicationController
   
+  layout "dashboard"
+  before_filter :authenticate_user!
+  
   def index
-    @employees = User.employees
+    @employees = User.search(params)
   end
 
   def show

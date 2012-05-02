@@ -1,7 +1,22 @@
+<%= content_for :sidebar do %>
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list">
+			<li class="nav-header">Prospects Administration</li>
+			<li><%= link_to "New Prospect", new_prospect_path %></li>
+			<li><%= link_to "View All", prospects_path %></li>
+			<li class="nav-header">Search Prospect</li>
+			<li>
+				<%= form_tag prospects_path, :method => :get do %>
+					<%= text_field_tag 'search', params[:search], :class => 'generic', :placeholder => "Search prospect..." %>
+				<% end %>
+			</li>
+		</ul>	
+		
+	</div>
+<% end %>
+
 <fieldset id="list_of_projects" class="">
 	<legend>List of Prospects</legend>
-</fieldset>
-<br />
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -38,7 +53,4 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_prospect_path,
-            :class => 'btn btn-primary' %>
+</fieldset>

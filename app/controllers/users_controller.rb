@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   
+  layout "dashboard"
   before_filter :authenticate_user!
   
   add_breadcrumb "Employees", "/employees", :only => :show

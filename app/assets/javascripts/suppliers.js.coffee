@@ -10,5 +10,6 @@ $ ->
 		theme: "facebook",
 		preventDuplicates: true,
 		tokenLimit: 5,
-		hintText: "Type an interest"
+		hintText: "Type an interest",
+		queryParam: "search"
 	})

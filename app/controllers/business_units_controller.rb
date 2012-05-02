@@ -1,4 +1,5 @@
 class BusinessUnitsController < ApplicationController
+  before_filter :authenticate_user!
   
   def index
     @business_units = BusinessUnit.where("name #{LIKE} ?", "%#{params[:q]}%")

@@ -42,4 +42,12 @@ class Client < ActiveRecord::Base
     self.business_units.map(&:name)
   end
   
+  def self.search(params={})
+    if params[:search].present?
+      where("company_name #{LIKE} ?", "%#{params[:search]}%")
+    else
+      where("company_name #{LIKE} ?", "%#{params[:q]}%")
+    end
+  end
+  
 end

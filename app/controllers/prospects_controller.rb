@@ -1,11 +1,14 @@
 class ProspectsController < ApplicationController
   
+  layout "dashboard"
+  before_filter :authenticate_user!
+  
   add_breadcrumb "Prospects", "/prospects", :except => :index
   add_breadcrumb "New prospect", "",  :only => [:new, :create]
   add_breadcrumb "Editing prospect","", :only => [:edit, :update]
   
   def index
-    @prospects = Prospect.all
+    @prospects = Prospect.search(params)
   end
 
   def show

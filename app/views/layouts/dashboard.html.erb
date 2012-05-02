@@ -22,21 +22,26 @@
   <body>
 
 	<%= render 'shared/header' %>
-
-    <div class="container" id="main-content-sign-in">
-      <div class="content">
+	<%#= render 'shared/user_admin_content' %>
+	
+	<div class="container-fluid">
 		<% flash.each do |name, msg| %>
 			<div id="flash_message_wrapper">
 				<%= content_tag :div, msg, class: "alert alert-#{name}", id: "flash_#{name}" %>
 			</div>
 		<% end %>
-              <%= yield %>
-      </div><!--/content-->
-
-	<%= render 'shared/footer' %>
-
-
-    </div> <!-- /container -->
+	  <div class="row-fluid">
+	    <div class="span3">
+			<%= yield(:sidebar) %>
+	    </div>
+	    <div class="span9">
+      		<%= render_breadcrumbs %>
+	        <%= yield %>
+	    </div>
+	  </div>
+		<%= render 'shared/footer' %>
+	</div>
+	 
 
     <!-- Javascripts
     ================================================== -->

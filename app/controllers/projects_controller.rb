@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  
+  layout "dashboard"
+  
   before_filter :authenticate_user!
   
   add_breadcrumb "Projects", "/projects", :except => :index
@@ -6,7 +9,7 @@ class ProjectsController < ApplicationController
   add_breadcrumb "Editing project","", :only => [:edit, :update]
   
   def index
-    @projects = Project.all
+    @projects = Project.search(params)
   end
 
   def show

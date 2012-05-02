@@ -1,7 +1,21 @@
+<%= content_for :sidebar do %>
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list">
+			<li class="nav-header">Employees Administration</li>
+			<li><%= link_to "New Employee", new_employee_path %></li>
+			<li><%= link_to "View All", employees_path %></li>
+			<li class="nav-header">Search Employee</li>
+			<li>
+				<%= form_tag employees_path, :method => :get do %>
+					<%= text_field_tag 'search', params[:search], :class => 'generic', :placeholder => "Search employee..." %>
+				<% end %>
+			</li>
+		</ul>	
+		
+	</div>
+<% end %>
 <fieldset id="list_of_employees" class="">
-	<legend>List of employees</legend>
-</fieldset>
-<br />
+	<legend>List of Employees</legend>
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
@@ -22,5 +36,4 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "New employee", new_employee_path, :class => 'btn btn-primary' %>
+</fieldset>
