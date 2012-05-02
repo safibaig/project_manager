@@ -101,6 +101,7 @@ div#footer {
 	-moz-border-radius: 0px !important;
 	border-radius: 0px !important;
 	background-repeat:no-repeat;
+	height:25px;
 }
 
 .user-admin {
@@ -195,6 +196,40 @@ input.email {
 	background-image:url(/assets/email.png);
 	background-position:5px 8px;
 	padding-left:25px;
+}
+
+input.general {
+	background-image:url(/assets/pencil.png);
+	background-position:5px 8px;
+	padding-left:25px;
+}
+
+input.phone {
+	background-image:url(/assets/phone.png);
+	background-position:5px 8px;
+	padding-left:25px;
+}
+
+input.executive {
+	background-image:url(/assets/generic.png);
+	background-position:5px 8px;
+	padding-left:25px;
+}
+
+input.map {
+	background-image:url(/assets/map.gif);
+	background-position:5px 8px;
+	padding-left:25px;
+}
+
+input.user {
+	background-image:url(/assets/user.png);
+	background-position:5px 8px;
+	padding-left:25px;
+}
+
+.alert {
+	@include shadow(2px, 2px, 5px, #999);
 }
 
 

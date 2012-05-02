@@ -1,13 +1,13 @@
 <div class="row-fluid">
 	<%= simple_form_for @prospect, :html => { :class => 'form-horizontal' } do |f| %>
-	  <%= f.input :company_name, :input_html => { :class => "generic" } %>
-	  <%= f.input :business_type, :input_html => { :class => "generic" } %>
+	  <%= f.input :company_name, :input_html => { :class => "generic executive" } %>
+	  <%= f.input :business_type, :input_html => { :class => "generic general" } %>
 	  <%= f.input :business_unit_tokens, :input_html => { :class => "generic", 'data-interests' => prepopulate_interests(@prospect) } %>
-	  <%= f.input :contact_name, :input_html => { :class => "generic" } %>
-	  <%= f.input :phone, :input_html => { :class => "generic" } %>
-	  <%= f.input :mobile, :input_html => { :class => "generic" } %>
+	  <%= f.input :contact_name, :input_html => { :class => "generic executive" } %>
+	  <%= f.input :phone, :input_html => { :class => "generic phone" } %>
+	  <%= f.input :mobile, :input_html => { :class => "generic phone" } %>
 	  <%= f.input :email, :input_html => { :class => "generic" } %>
-	  <%= f.input :website, :input_html => { :class => "generic" } %>
+	  <%= f.input :website, :input_html => { :class => "generic map" } %>
 	  <%= f.input :address, :input_html => { :rows => 5, :cols => 20, :class => "generic" } %>
 	  <div class="form-actions">
 	    <%= f.button :submit, :class => 'btn-primary' %>
