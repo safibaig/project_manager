@@ -1,7 +1,7 @@
 @mixin rounded($radius) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
+  border-radius: $radius !important;
+  -moz-border-radius: $radius !important;
+  -webkit-border-radius: $radius !important;
 }
 @mixin shadow($x, $y, $s, $color) {
   -webkit-box-shadow: $x $y $s $color;
@@ -102,6 +102,7 @@ div#footer {
 	-webkit-border-radius: 0px !important;
 	-moz-border-radius: 0px !important;
 	border-radius: 0px !important;
+	background-repeat:no-repeat;
 }
 
 .user-admin {
@@ -154,4 +155,38 @@ img#logo {
 
 #user-settings {
 	color:#049cdb;
+}
+
+#sign_in_form {
+	border:1px solid #ccc;
+	@include rounded(5px);
+	width:450px;
+	margin:0px auto;
+	padding:10px;
+	@include shadow(1px, 1px, 5px, #ccc);
+	background-color:#f8f8f8;
+	
+	input.generic {
+		height:25px;
+		width:80%;
+	}
+	
+	div#login_button {
+		text-align:right;
+		margin-top:15px;
+		margin-right:60px;
+	}
+
+}
+
+input.password {
+	background-image:url(/assets/password.png);
+	background-position:5px 10px;
+	padding-left:25px;
+}
+
+input.email {
+	background-image:url(/assets/email.png);
+	background-position:5px 8px;
+	padding-left:25px;
 }
