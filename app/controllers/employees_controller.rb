@@ -32,4 +32,8 @@ class EmployeesController < ApplicationController
   
   def edit
   end
+  
+  def filter_by_status
+    @employees = User.find_by_status(params[:status])
+  end
 end

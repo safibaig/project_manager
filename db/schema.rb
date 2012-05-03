@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503031138) do
+ActiveRecord::Schema.define(:version => 20120503041546) do
 
   create_table "business_units", :force => true do |t|
     t.string   "name"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20120503031138) do
     t.string   "portfolio",              :default => ""
     t.string   "degree",                 :default => ""
     t.boolean  "intern",                 :default => false
+    t.integer  "status",                 :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

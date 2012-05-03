@@ -21,6 +21,10 @@ ProjectManager::Application.routes.draw do
   resources :suppliers
   resources :business_units, :only => :index
   resources :users
-  resources :employees
+  resources :employees do
+    collection do
+      get "/status/:status", :action => :filter_by_status, :as => :filter_by_status
+    end
+  end
   
 end

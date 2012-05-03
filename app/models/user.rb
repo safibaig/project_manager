@@ -54,4 +54,8 @@ class User < ActiveRecord::Base
       employees
     end
   end
+  
+  def self.find_by_status(status)
+    where(:status => status)
+  end
 end
