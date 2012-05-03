@@ -34,6 +34,26 @@ class Prospect < ActiveRecord::Base
             ["Amarillo", 2],
             ["Verde", 3],
             ["Gris", 4]]
+            
+  scope :interested_in_software, lambda {
+    joins(:business_units).where("business_units.name = 'Software'")
+  }
+
+  scope :interested_in_graphic_design, lambda {
+    joins(:business_units).where("business_units.name = 'Graphic Design'")
+  }
+
+  scope :interested_in_industrial_design, lambda {
+    joins(:business_units).where("business_units.name = 'Industrial Design'")
+  }
+
+  scope :interested_in_business_planning, lambda {
+    joins(:business_units).where("business_units.name = 'Business Planning'")
+  }
+
+  scope :interested_in_research_and_development, lambda {
+    joins(:business_units).where("business_units.name = 'Research and Development'")
+  }
   
   def business_unit_tokens=(ids)
     self.business_unit_ids = ids.split(",")

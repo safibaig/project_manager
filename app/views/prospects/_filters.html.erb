@@ -1,7 +1,13 @@
 <li class="nav-header">Filter by:</li>
-<li><%= link_to "Status", "#" %></li>
+<li><h6>Status:</h6></li>
 <span class="status_link" id="red"><%= link_to "1", filter_by_status_prospects_path(1) %></span>
 <span class="status_link" id="yellow"><%= link_to "2", filter_by_status_prospects_path(2) %></span>
 <span class="status_link" id="green"><%= link_to "3", filter_by_status_prospects_path(3) %></span>
 <span class="status_link" id="gray"><%= link_to "4", filter_by_status_prospects_path(4) %></span>
-<li></li>
+<li>&nbsp;</li>
+<li><h6>Interest:</h6></li>
+<li class="<%= 'active' if params[:action] == "interested_in_software" %>"><%= link_to "Software", interested_in_software_prospects_path %></li>
+<li class="<%= 'active' if params[:action] == "interested_in_graphic_design" %>"><%= link_to "Graphic Design", interested_in_graphic_design_prospects_path %></li>
+<li class="<%= 'active' if params[:action] == "interested_in_industrial_design" %>"><%= link_to "Industrial Design", interested_in_industrial_design_prospects_path %></li>
+<li class="<%= 'active' if params[:action] == "interested_in_business_planning" %>"><%= link_to "Business Planning", interested_in_business_planning_prospects_path %></li>
+<li class="<%= 'active' if params[:action] == "interested_in_research_and_development" %>"><%= link_to "Research & Development", interested_in_research_and_development_prospects_path %></li>

@@ -3,7 +3,12 @@ class ProspectsController < ApplicationController
   layout "dashboard"
   before_filter :authenticate_user!
   
-  add_breadcrumb "Prospects", "/prospects", :except => [:index, :filter_by_status]
+  add_breadcrumb "Prospects", "/prospects", :except => [:index,:interested_in_software, 
+                                                        :interested_in_graphic_design,
+                                                        :interested_in_industrial_design,
+                                                        :interested_in_business_planning,
+                                                        :interested_in_research_and_development,
+                                                        :filter_by_status]
   add_breadcrumb "New prospect", "",  :only => [:new, :create]
   add_breadcrumb "Editing prospect","", :only => [:edit, :update]
   
@@ -50,6 +55,31 @@ class ProspectsController < ApplicationController
   
   def filter_by_status
     @prospects = Prospect.find_by_status(params[:status])
+  end
+  
+  def interested_in_software
+    @prospects = Prospect.interested_in_software
+    render :index
+  end
+  
+  def interested_in_graphic_design
+     @prospects = Prospect.interested_in_graphic_design
+     render :index
+   end
+  
+  def interested_in_industrial_design
+    @prospects = Prospect.interested_in_industrial_design
+    render :index
+  end
+    
+  def interested_in_business_planning
+     @prospects = Prospect.interested_in_business_planning
+     render :index
+  end
+  
+  def interested_in_research_and_development
+    @prospects = Prospect.interested_in_research_and_development
+    render :index
   end
   
 end

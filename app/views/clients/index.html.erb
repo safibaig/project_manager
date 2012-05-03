@@ -7,11 +7,11 @@
 			<li><%= link_to "New Client", new_client_path %></li>
 			<li><%= link_to "View All", clients_path %></li>
 			<li class="nav-header">Filter by:</li>
-			<li><%= link_to "Software", interested_in_software_clients_path %></li>
-			<li><%= link_to "Graphic Design", interested_in_graphic_design_clients_path %></li>
-			<li><%= link_to "Industrial Design", interested_in_industrial_design_clients_path %></li>
-			<li><%= link_to "Business Planning", interested_in_business_planning_clients_path %></li>
-			<li><%= link_to "Research & Development", interested_in_research_and_development_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_software" %>"><%= link_to "Software", interested_in_software_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_graphic_design" %>"><%= link_to "Graphic Design", interested_in_graphic_design_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_industrial_design" %>"><%= link_to "Industrial Design", interested_in_industrial_design_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_business_planning" %>"><%= link_to "Business Planning", interested_in_business_planning_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_research_and_development" %>"><%= link_to "Research & Development", interested_in_research_and_development_clients_path %></li>
 			<li class="nav-header">Search Client</li>
 			<li>
 				<%= form_tag clients_path, :method => :get do %>
