@@ -29,6 +29,26 @@ class Client < ActiveRecord::Base
   validates :company_name, 
             :contact_name, :phone, :mobile, :email,
             :presence => true 
+          
+  scope :interested_in_software, lambda {
+    joins(:business_units).where("business_units.name = 'Software'")
+  }
+  
+  scope :interested_in_graphic_design, lambda {
+    joins(:business_units).where("business_units.name = 'Graphic Design'")
+  }
+  
+  scope :interested_in_industrial_design, lambda {
+    joins(:business_units).where("business_units.name = 'Industrial Design'")
+  }
+  
+  scope :interested_in_business_planning, lambda {
+    joins(:business_units).where("business_units.name = 'Business Planning'")
+  }
+  
+  scope :interested_in_research_and_development, lambda {
+    joins(:business_units).where("business_units.name = 'Research and Development'")
+  }
             
   def to_s
     self.company_name.capitalize

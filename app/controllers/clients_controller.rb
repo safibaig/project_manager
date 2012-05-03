@@ -3,7 +3,11 @@ class ClientsController < ApplicationController
   layout "dashboard"
   before_filter :authenticate_user!
 
-  add_breadcrumb "Clients", "/clients", :except => :index
+  add_breadcrumb "Clients", "/clients", :except => [:index,:interested_in_software, 
+                                                    :interested_in_graphic_design,
+                                                    :interested_in_industrial_design,
+                                                    :interested_in_business_planning,
+                                                    :interested_in_research_and_development]
   add_breadcrumb "New client", "",  :only => [:new, :create]
   add_breadcrumb "Editing client","", :only => [:edit, :update]
 
@@ -51,4 +55,29 @@ class ClientsController < ApplicationController
     @client.destroy
     redirect_to clients_url,:flash => {:success => 'Client was successfully destroyed.'}
   end
+  
+  def interested_in_software
+    @clients = Client.interested_in_software
+    render :index
+  end
+  
+  def interested_in_graphic_design
+     @clients = Client.interested_in_graphic_design
+     render :index
+   end
+  
+  def interested_in_industrial_design
+    @clients = Client.interested_in_industrial_design
+    render :index
+  end
+    
+  def interested_in_business_planning
+     @clients = Client.interested_in_business_planning
+     render :index
+  end
+  
+   def interested_in_research_and_development
+      @clients = Client.interested_in_research_and_development
+      render :index
+    end
 end

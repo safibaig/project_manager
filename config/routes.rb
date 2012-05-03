@@ -1,6 +1,14 @@
 ProjectManager::Application.routes.draw do
 
-  resources :clients
+  resources :clients do
+    collection do
+      get "/software", :action => :interested_in_software, :as => :interested_in_software
+      get "/graphic_design", :action => :interested_in_graphic_design, :as => :interested_in_graphic_design
+      get "/industrial_design", :action => :interested_in_industrial_design, :as => :interested_in_industrial_design
+      get "/business_planning", :action => :interested_in_business_planning, :as => :interested_in_business_planning
+      get "/research_and_development", :action => :interested_in_research_and_development, :as => :interested_in_research_and_development
+    end
+  end
   resources :comments
   
 
