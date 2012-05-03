@@ -3,7 +3,7 @@ class ProspectsController < ApplicationController
   layout "dashboard"
   before_filter :authenticate_user!
   
-  add_breadcrumb "Prospects", "/prospects", :except => :index
+  add_breadcrumb "Prospects", "/prospects", :except => [:index, :filter_by_status]
   add_breadcrumb "New prospect", "",  :only => [:new, :create]
   add_breadcrumb "Editing prospect","", :only => [:edit, :update]
   
@@ -46,6 +46,10 @@ class ProspectsController < ApplicationController
     @prospect = Prospect.find(params[:id])
     @prospect.destroy
     redirect_to prospects_path, :success => 'Prospect was successfully destroyed.' 
+  end
+  
+  def filter_by_status
+    @prospects = Prospect.find_by_status(params[:status])
   end
   
 end

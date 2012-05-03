@@ -50,4 +50,9 @@ class Prospect < ActiveRecord::Base
       all
     end
   end
+  
+  def self.find_by_status(status)
+    where(:status => status)
+  end
+  
 end

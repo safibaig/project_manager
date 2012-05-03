@@ -248,3 +248,30 @@ img#admin_photo {
 	font-size:11px;
 }
 
+span#red {
+	background-color:#f10039;
+}
+
+
+span#yellow {
+	background-color:#e3e94d;
+}
+
+span#green {
+	background-color:#92d879;
+}
+
+span#gray {
+	background-color:#8f8f8f;
+}
+
+span.status_link {
+	padding:2px 8px;
+	border:1px solid #fff;
+	
+	a {
+		color:white;
+		font-size:14px;
+		font-weight:bold;
+	}
+}

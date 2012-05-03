@@ -13,7 +13,11 @@ ProjectManager::Application.routes.draw do
   match 'home' => 'pages#home', :as => :home
   
   resources :projects
-  resources :prospects
+  resources :prospects do
+    collection do
+      get "/by_status/:status", :action => :filter_by_status, :as => :filter_by_status
+    end
+  end
   resources :suppliers
   resources :business_units, :only => :index
   resources :users
