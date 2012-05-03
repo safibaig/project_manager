@@ -23,12 +23,17 @@ class Prospect < ActiveRecord::Base
   has_many :comments, :as => :commentable
   attr_reader :business_unit_tokens
   
-  validates :business_type, :company_name, 
+  validates :business_type, :company_name, :status,
             :contact_name, :phone, :mobile, :email,
             :presence => true
   
-  attr_accessible :business_type, :company_name, :contact_name,
+  attr_accessible :business_type, :company_name, :contact_name, :status,
                   :phone, :mobile, :email, :website, :address, :business_unit_tokens
+  
+  STATUS = [["Rojo", 1],
+            ["Amarillo", 2],
+            ["Verde", 3],
+            ["Gris", 4]]
   
   def business_unit_tokens=(ids)
     self.business_unit_ids = ids.split(",")

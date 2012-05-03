@@ -1,0 +1,11 @@
+<div class="row-fluid">
+		<div class="span3">
+			<%= image_tag "user-generic_admin.png", :id => "admin_photo" %>
+		</div>
+		<div class="span8">
+			<%= link_to current_user, current_user %><br />
+			<%= link_to "Profile", current_user, :class => "mini-link" %> |
+			<%= link_to "Settings", edit_user_path(current_user), :class => "mini-link" %>
+		</div>
+</div>
+<br />

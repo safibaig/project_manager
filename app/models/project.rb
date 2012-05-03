@@ -27,11 +27,36 @@ class Project < ActiveRecord::Base
   
   attr_reader :supplier_tokens
   
-  validates :name, :project_manager, :status,
+  validates :name, :project_manager, :status, :kind,
             :lead_source, :estimation, :presence => true
   
   validates :estimation, :status, :numericality => true
   
+  KINDS = [["Internal", "Internal"],
+           ["External", "External"]]
+  
+  DEPARTMENTS = [["Business Development", "Business Development"],
+                ["Legal", "Legal"],
+                ["Finance", "Finance"],
+                ["Marketing","Marketing"],
+                ["Human Development", "Human Development"],
+                ["Graphic Design", "Graphic Design"],
+                ["Software", "Software"],
+                ["Industrial Design", "Industrial Design"],
+                ["Business Planning", "Business Planning"],
+                ["Research and Development", "Research and Development"]]
+  
+  LEAD_SOURCES = [["Website", "Website"],
+                  ["Facebook", "Facebook"],
+                  ["Twitter", "Twitter"],
+                  ["Linkedin", "Linkedin"],
+                  ["Innovation magazine", "Innovation magazine"],
+                  ["YouTube", "YouTube"],
+                  ["Email", "Email"],
+                  ["Recommendation", "Recommendation"],
+                  ["Employees", "Employees"],
+                  ["Innovative Lab", "Innovative Lab"],
+                  ["Phone", "Phone"]]
   
   def supplier_tokens=(ids)
     self.supplier_ids = ids.split(",")

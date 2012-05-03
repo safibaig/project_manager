@@ -1,6 +1,8 @@
 <%= content_for :sidebar do %>
 	<div class="well sidebar-nav">
+		<%= render 'shared/general_admin' %>
 		<ul class="nav nav-list">
+			<%= render 'shared/current_user_projects' %>
 			<li class="nav-header">Clients Administration</li>
 			<li><%= link_to "New Client", new_client_path %></li>
 			<li><%= link_to "View All", clients_path %></li>

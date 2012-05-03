@@ -1,5 +1,6 @@
 <div class="row-fluid">
 	<%= simple_form_for @prospect, :html => { :class => 'form-horizontal' } do |f| %>
+	  <%= f.input :status, :collection => Prospect::STATUS, :prompt => "Select a status" %>
 	  <%= f.input :company_name, :input_html => { :class => "generic executive" } %>
 	  <%= f.input :business_type, :input_html => { :class => "generic general" } %>
 	  <%= f.input :business_unit_tokens, :input_html => { :class => "generic", 'data-interests' => prepopulate_interests(@prospect) } %>

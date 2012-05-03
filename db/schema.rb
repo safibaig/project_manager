@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502000507) do
+ActiveRecord::Schema.define(:version => 20120503031138) do
 
   create_table "business_units", :force => true do |t|
     t.string   "name"
@@ -64,8 +64,9 @@ ActiveRecord::Schema.define(:version => 20120502000507) do
     t.integer  "status"
     t.string   "lead_source"
     t.decimal  "estimation"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "kind",             :default => "External"
   end
 
   create_table "prospects", :force => true do |t|
@@ -78,8 +79,9 @@ ActiveRecord::Schema.define(:version => 20120502000507) do
     t.string   "email"
     t.string   "website"
     t.text     "address"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "status",        :default => 2
   end
 
   create_table "sellings", :force => true do |t|
@@ -102,10 +104,10 @@ ActiveRecord::Schema.define(:version => 20120502000507) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "name",                   :default => "", :null => false
-    t.string   "last_name",              :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "name",                   :default => "",    :null => false
+    t.string   "last_name",              :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -114,9 +116,15 @@ ActiveRecord::Schema.define(:version => 20120502000507) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "rol"
+    t.text     "address",                :default => ""
+    t.string   "phone",                  :default => ""
+    t.string   "cv",                     :default => ""
+    t.string   "portfolio",              :default => ""
+    t.string   "degree",                 :default => ""
+    t.boolean  "intern",                 :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
