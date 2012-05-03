@@ -36,4 +36,14 @@ class EmployeesController < ApplicationController
   def filter_by_status
     @employees = User.find_by_status(params[:status])
   end
+  
+  def male
+    @employees = User.male
+    render :index
+  end
+  
+  def female
+    @employees = User.female
+    render :index
+  end
 end

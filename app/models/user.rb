@@ -35,6 +35,14 @@ class User < ActiveRecord::Base
       where(:rol => "Employee")
   }
   
+  scope :male, lambda {
+    where(:gender => "Male")
+  }
+  
+  scope :female, lambda {
+    where(:gender => "Female")
+  }
+  
   def to_s
     "#{self.name} #{self.last_name}".titleize
   end

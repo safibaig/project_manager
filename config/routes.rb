@@ -42,6 +42,8 @@ ProjectManager::Application.routes.draw do
   resources :employees do
     collection do
       get "/status/:status", :action => :filter_by_status, :as => :filter_by_status
+      get '/male', :action => :male, :as => :male
+      get '/female', :action => :female, :as => :female
     end
   end
   

@@ -6,9 +6,7 @@
 			<li class="nav-header">Employees Administration</li>
 			<li><%= link_to "New Employee", new_employee_path %></li>
 			<li><%= link_to "View All", employees_path %></li>
-			<li class="nav-header">Filter by:</li>
-			<li><%= link_to "Active", filter_by_status_employees_path(1) %></li>
-			<li><%= link_to "Inactive", filter_by_status_employees_path(0) %></li>
+			<%= render 'filters' %>
 			<li class="nav-header">Search Employee</li>
 			<li>
 				<%= form_tag employees_path, :method => :get do %>
