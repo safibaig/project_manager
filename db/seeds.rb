@@ -33,3 +33,11 @@ BusinessUnit.create(:name => "Software")
 BusinessUnit.create(:name => "Industrial Design")
 BusinessUnit.create(:name => "Business Planning")
 BusinessUnit.create(:name => "Research and Development")
+
+DEPARTMENTS = ["Business Development","Legal","Finance","Marketing","Human Development",
+               "Graphic Design", "Software", "Industrial Design", "Business Planning", 
+               "Research and Development"]
+
+DEPARTMENTS.each do |department|
+  Department.create(:name => department)
+end

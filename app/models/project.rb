@@ -43,17 +43,6 @@ class Project < ActiveRecord::Base
   KINDS = [["Internal", "Internal"],
            ["External", "External"]]
   
-  DEPARTMENTS = [["Business Development", "Business Development"],
-                ["Legal", "Legal"],
-                ["Finance", "Finance"],
-                ["Marketing","Marketing"],
-                ["Human Development", "Human Development"],
-                ["Graphic Design", "Graphic Design"],
-                ["Software", "Software"],
-                ["Industrial Design", "Industrial Design"],
-                ["Business Planning", "Business Planning"],
-                ["Research and Development", "Research and Development"]]
-  
   LEAD_SOURCES = [["Website", "Website"],
                   ["Facebook", "Facebook"],
                   ["Twitter", "Twitter"],
