@@ -6,6 +6,9 @@
 			<li class="nav-header">Projects Administration</li>
 			<li><%= link_to "New Project", new_project_path %></li>
 			<li><%= link_to "View All", projects_path %></li>
+			<li class="nav-header">Filter by:</li>
+			<li class="<%= 'active' if params[:action] == 'internal'%>"><%= link_to "Intenal", internal_projects_path %></li>
+			<li class="<%= 'active' if params[:action] == 'external'%>"><%= link_to "External", external_projects_path %></li>
 			<li class="nav-header">Search Project</li>
 			<li>
 				<%= form_tag projects_path, :method => :get do %>

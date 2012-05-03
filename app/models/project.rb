@@ -32,6 +32,14 @@ class Project < ActiveRecord::Base
   
   validates :estimation, :status, :numericality => true
   
+  scope :internal, lambda {
+    where(:kind => "Internal")
+  }
+  
+  scope :external, lambda {
+    where(:kind => "External")
+  }
+  
   KINDS = [["Internal", "Internal"],
            ["External", "External"]]
   

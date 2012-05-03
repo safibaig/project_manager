@@ -12,10 +12,15 @@ ProjectManager::Application.routes.draw do
   
   match 'home' => 'pages#home', :as => :home
   
-  resources :projects
+  resources :projects do
+    collection do
+      get '/internal', :action => :internal, :as => :internal
+      get '/external', :action => :external, :as => :external
+    end
+  end
   resources :prospects do
     collection do
-      get "/by_status/:status", :action => :filter_by_status, :as => :filter_by_status
+      get "/status/:status", :action => :filter_by_status, :as => :filter_by_status
     end
   end
   resources :suppliers

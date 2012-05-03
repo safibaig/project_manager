@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   
   before_filter :authenticate_user!
   
-  add_breadcrumb "Projects", "/projects", :except => :index
+  add_breadcrumb "Projects", "/projects", :except => [:index, :internal, :external]
   add_breadcrumb "New project", "",  :only => [:new, :create]
   add_breadcrumb "Editing project","", :only => [:edit, :update]
   
@@ -47,5 +47,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path, :flash => {:success => 'Project was destroyed succesfully'}
+  end
+  
+  def internal
+    @projects = Project.internal
+    render :index
+  end
+  
+  def external
+    @projects = Project.external
+    render :index
   end
 end
