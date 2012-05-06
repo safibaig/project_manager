@@ -50,7 +50,7 @@ class Client < ActiveRecord::Base
     joins(:business_units).where("business_units.name = 'Research and Development'")
   }
   
-  scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", from, to)}
+  scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
             
   def to_s
     self.company_name.capitalize

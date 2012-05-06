@@ -8,7 +8,8 @@ class ProspectsController < ApplicationController
                                                         :interested_in_industrial_design,
                                                         :interested_in_business_planning,
                                                         :interested_in_research_and_development,
-                                                        :filter_by_status]
+                                                        :filter_by_status,
+                                                        :by_date_range]
   add_breadcrumb "New prospect", "",  :only => [:new, :create]
   add_breadcrumb "Editing prospect","", :only => [:edit, :update]
   
@@ -79,6 +80,11 @@ class ProspectsController < ApplicationController
   
   def interested_in_research_and_development
     @prospects = Prospect.interested_in_research_and_development
+    render :index
+  end
+  
+  def by_date_range
+    @prospects = Prospect.by_date_range(params[:from], params[:to])
     render :index
   end
   

@@ -56,6 +56,8 @@ class Prospect < ActiveRecord::Base
     joins(:business_units).where("business_units.name = 'Research and Development'")
   }
   
+  scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
+  
   def business_unit_tokens=(ids)
     self.business_unit_ids = ids.split(",")
   end

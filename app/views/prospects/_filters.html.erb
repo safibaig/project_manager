@@ -12,3 +12,9 @@
 <li class="<%= 'active' if params[:action] == "interested_in_industrial_design" %>"><%= link_to "Industrial Design", interested_in_industrial_design_prospects_path %></li>
 <li class="<%= 'active' if params[:action] == "interested_in_business_planning" %>"><%= link_to "Business Planning", interested_in_business_planning_prospects_path %></li>
 <li class="<%= 'active' if params[:action] == "interested_in_research_and_development" %>"><%= link_to "Research & Development", interested_in_research_and_development_prospects_path %></li>
+<li class="nav-header">Dates:</li>
+<%= form_tag by_date_range_prospects_path, :method => :get do %>
+	<%= text_field_tag 'from', params[:from], :class => 'generic calendar', :placeholder => "From..." %>
+	<%= text_field_tag 'to', params[:to], :class => 'generic calendar', :placeholder => "To..." %>
+	<%= submit_tag "Filter", :class => "btn btn-mini btn-primary" %>
+<% end %>
