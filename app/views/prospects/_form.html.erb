@@ -1,5 +1,35 @@
+<%= content_for :sidebar do %>
+	<div class="well sidebar-nav">
+		<%= render 'shared/general_admin' %>
+		<ul class="nav nav-list">
+			<%= render 'shared/current_user_projects' %>
+			<li class="nav-header">Projects Administration</li>
+			<li><%= link_to "New Project", new_project_path %></li>
+			<li><%= link_to "View All", projects_path %></li>
+			<li class="nav-header">Filter by:</li>
+			<li class="<%= 'active' if params[:action] == 'internal'%>"><%= link_to "Intenal", internal_projects_path %></li>
+			<li class="<%= 'active' if params[:action] == 'external'%>"><%= link_to "External", external_projects_path %></li>
+			<li class="nav-header">Dates:</li>
+			<%= form_tag by_date_range_projects_path, :method => :get do %>
+				<%= text_field_tag 'from', params[:from], :class => 'generic calendar', :placeholder => "From..." %>
+				<%= text_field_tag 'to', params[:to], :class => 'generic calendar', :placeholder => "To..." %>
+				<%= submit_tag "Filter", :class => "btn btn-mini btn-primary" %>
+			<% end %>
+			<li class="nav-header">Search Project</li>
+			<li>
+				<%= form_tag projects_path, :method => :get do %>
+					<%= text_field_tag 'search', params[:search], :class => 'generic glass', :placeholder => "Search project..." %>
+				<% end %>
+			</li>
+		</ul>	
+		
+	</div>
+<% end %>
+
 <div class="row-fluid">
-	<%= simple_form_for @prospect, :html => { :class => 'form-horizontal' } do |f| %>
+	<fieldset id="" class="">
+		<legend><%= yield(:legend) %></legend>
+	<%= simple_form_for @prospect, :html => { :class => 'form-horizontal well' } do |f| %>
 	  <%= f.input :status, :collection => Prospect::STATUS, :prompt => "Select a status" %>
 	  <%= f.input :company_name, :input_html => { :class => "generic executive" } %>
 	  <%= f.input :business_type, :input_html => { :class => "generic general" } %>
@@ -15,5 +45,6 @@
 	    <%= link_to "Cancel", prospects_path, :class => 'btn' %>
 	  </div>
 	<% end %>
+	</fieldset>
 </div>
 
