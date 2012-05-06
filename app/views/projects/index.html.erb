@@ -9,6 +9,12 @@
 			<li class="nav-header">Filter by:</li>
 			<li class="<%= 'active' if params[:action] == 'internal'%>"><%= link_to "Intenal", internal_projects_path %></li>
 			<li class="<%= 'active' if params[:action] == 'external'%>"><%= link_to "External", external_projects_path %></li>
+			<li class="nav-header">Dates:</li>
+			<%= form_tag by_date_range_projects_path, :method => :get do %>
+				<%= text_field_tag 'from', params[:from], :class => 'generic calendar', :placeholder => "From..." %>
+				<%= text_field_tag 'to', params[:to], :class => 'generic calendar', :placeholder => "To..." %>
+				<%= submit_tag "Filter", :class => "btn btn-mini btn-primary" %>
+			<% end %>
 			<li class="nav-header">Search Project</li>
 			<li>
 				<%= form_tag projects_path, :method => :get do %>

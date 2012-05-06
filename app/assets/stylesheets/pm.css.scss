@@ -210,6 +210,12 @@ input.phone {
 	padding-left:25px;
 }
 
+input.calendar {
+	background-image:url(/assets/calendar.png);
+	background-position:5px 8px;
+	padding-left:25px;
+}
+
 input.executive {
 	background-image:url(/assets/generic.png);
 	background-position:5px 8px;
@@ -248,21 +254,25 @@ img#admin_photo {
 	font-size:11px;
 }
 
-span#red {
+span#red, .red {
 	background-color:#f10039;
 }
 
 
-span#yellow {
+span#yellow, .yellow {
 	background-color:#e3e94d;
 }
 
-span#green {
+span#green, .green {
 	background-color:#92d879;
 }
 
-span#gray {
-	background-color:#8f8f8f;
+span#blue, .blue {
+	background-color:#566efd;
+}
+
+span#orange, .orange {
+	background-color:#f8d774;
 }
 
 span.status_link {
@@ -274,4 +284,8 @@ span.status_link {
 		font-size:14px;
 		font-weight:bold;
 	}
+}
+
+.no-layout {
+	table-layout:auto !important;
 }

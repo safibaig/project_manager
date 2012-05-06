@@ -40,6 +40,8 @@ class Project < ActiveRecord::Base
     where(:kind => "External")
   }
   
+  scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", from, to)}
+  
   KINDS = [["Internal", "Internal"],
            ["External", "External"]]
   

@@ -47,4 +47,8 @@ $ ->
 		preventDuplicates: true
 	})
 	
+	$(".calendar").datepicker({
+		dateFormat: "yy-mm-dd"
+	})
+	
 	

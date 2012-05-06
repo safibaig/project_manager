@@ -30,7 +30,8 @@ class Prospect < ActiveRecord::Base
   attr_accessible :business_type, :company_name, :contact_name, :status,
                   :phone, :mobile, :email, :website, :address, :business_unit_tokens
   
-  STATUS = [["Rojo", 1],
+  STATUS = [["Rojo", 0],
+            ["Naranja", 1],
             ["Amarillo", 2],
             ["Verde", 3],
             ["Gris", 4]]

@@ -24,6 +24,7 @@ ProjectManager::Application.routes.draw do
     collection do
       get '/internal', :action => :internal, :as => :internal
       get '/external', :action => :external, :as => :external
+      get '/by_date_range', :action => :by_date_range, :as => :by_date_range
     end
   end
   resources :prospects do

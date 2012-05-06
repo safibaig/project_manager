@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   
   before_filter :authenticate_user!
   
-  add_breadcrumb "Projects", "/projects", :except => [:index, :internal, :external]
+  add_breadcrumb "Projects", "/projects", :except => [:index, :internal, :external, :by_date_range]
   add_breadcrumb "New project", "",  :only => [:new, :create]
   add_breadcrumb "Editing project","", :only => [:edit, :update]
   
@@ -58,4 +58,10 @@ class ProjectsController < ApplicationController
     @projects = Project.external
     render :index
   end
+  
+  def by_date_range
+    @projects = Project.by_date_range(params[:from], params[:to])
+    render :index
+  end
+  
 end

@@ -20,9 +20,10 @@
 
 <fieldset id="list_of_projects" class="">
 	<legend>List of Prospects</legend>
-<table class="table table-bordered">
+<table class="table table-bordered no-layout">
   <thead>
     <tr>
+		<th>STS</th>
 		<th>Company Name</th>
 	      <th>Business Type</th>
 	      <th>Interests</th>
@@ -36,6 +37,7 @@
   <tbody>
     <% @prospects.each do |prospect| %>
       <tr>
+		<td><span class="status_link <%= render_color(prospect.status) %>"><%= prospect.status %></span></td>
         <td><%= link_to prospect.company_name, prospect %></td>
         <td><%=prospect.business_type %></td>
         <td><%=prospect.business_unit_interests.to_sentence %></td>
