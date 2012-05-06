@@ -7,6 +7,7 @@ ProjectManager::Application.routes.draw do
       get "/industrial_design", :action => :interested_in_industrial_design, :as => :interested_in_industrial_design
       get "/business_planning", :action => :interested_in_business_planning, :as => :interested_in_business_planning
       get "/research_and_development", :action => :interested_in_research_and_development, :as => :interested_in_research_and_development
+      get '/by_date_range', :action => :by_date_range, :as => :by_date_range
     end
   end
   resources :comments

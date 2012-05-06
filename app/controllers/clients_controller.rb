@@ -7,7 +7,8 @@ class ClientsController < ApplicationController
                                                     :interested_in_graphic_design,
                                                     :interested_in_industrial_design,
                                                     :interested_in_business_planning,
-                                                    :interested_in_research_and_development]
+                                                    :interested_in_research_and_development,
+                                                    :by_date_range]
   add_breadcrumb "New client", "",  :only => [:new, :create]
   add_breadcrumb "Editing client","", :only => [:edit, :update]
 
@@ -80,4 +81,9 @@ class ClientsController < ApplicationController
       @clients = Client.interested_in_research_and_development
       render :index
     end
+    
+  def by_date_range
+    @clients = Client.by_date_range(params[:from], params[:to])
+    render :index
+  end
 end
