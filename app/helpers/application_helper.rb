@@ -16,4 +16,12 @@ module ApplicationHelper
      resource.split(",").each{|r| return "active" if params[:controller] == r }
   end
   
+  def bran_path
+    if user_signed_in?
+      home_path
+    else
+      root_path
+    end
+  end
+  
 end

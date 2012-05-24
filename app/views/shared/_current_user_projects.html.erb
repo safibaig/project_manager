@@ -1,4 +1,4 @@
 <li class="nav-header">My Projects</li>
-<% current_user.projects.each do |project| %>
+<% current_user.projects.limit(3).each do |project| %>
 	<li><%= link_to project.name, project %></li>
 <% end %>

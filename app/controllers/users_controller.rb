@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   layout "dashboard"
   before_filter :authenticate_user!
   
-  add_breadcrumb "Employees", "/employees", :only => :show
-  
   def index
     @users = User.find_by_params(params[:q])
     respond_to do |format|
@@ -15,7 +13,20 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-     add_breadcrumb "#{@user}"
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      sign_in(@user, :bypass => true)
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
 end

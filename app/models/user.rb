@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :rol
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :rol, :gender, :image
   
   validates :name, :last_name, :rol, :presence => true
   
@@ -42,6 +42,11 @@ class User < ActiveRecord::Base
   scope :female, lambda {
     where(:gender => "Female")
   }
+  
+  GENDERS = [["Male", "Male"],
+             ["Female", "Female"]]
+             
+  mount_uploader :image, ImageUploader
   
   def to_s
     "#{self.name} #{self.last_name}".titleize

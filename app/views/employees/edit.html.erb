@@ -1,2 +1,6 @@
-<h1>Employees#edit</h1>
-<p>Find me in app/views/employees/edit.html.erb</p>
+<%= content_for :fieldset do %>
+	<fieldset id="new_client" class="">
+		<legend>Edit Employee</legend>
+	</fieldset>
+<% end %>
+<%= render 'form' %>

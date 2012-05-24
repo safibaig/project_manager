@@ -1,6 +1,6 @@
 <div class="row-fluid">
 		<div class="span3">
-			<%= image_tag "user-generic_admin.png", :id => "admin_photo" %>
+			<%= image_tag current_user.image_url(:thumb).to_s, :id => "admin_photo" %>
 		</div>
 		<div class="span8">
 			<%= link_to current_user, current_user %><br />

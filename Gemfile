@@ -36,6 +36,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+gem 'carrierwave', '0.6.2'
+gem 'mini_magick'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

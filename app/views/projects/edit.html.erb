@@ -1,4 +1,6 @@
-<%- model_class = @project.class -%>
-<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
-                                 :default => "Edit #{model_class.model_name.human}") %></h1>
+<%= content_for :fieldset do %>
+	<fieldset id="new_client" class="">
+		<legend>Editing Project</legend>
+	</fieldset>
+<% end %>
 <%= render :partial => 'form' %>
