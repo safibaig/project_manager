@@ -27,7 +27,7 @@
 	<div class="container-fluid">
 		<% flash.each do |name, msg| %>
 			<div id="flash_message_wrapper">
-				<%= content_tag :div, msg, class: "alert alert-#{name}", id: "flash_#{name}" %>
+				<%= content_tag :div, msg, :class => "alert alert-#{name}", id: "flash_#{name}" %>
 			</div>
 		<% end %>
 	  <div class="row-fluid">
