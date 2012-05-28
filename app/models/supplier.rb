@@ -24,10 +24,12 @@ class Supplier < ActiveRecord::Base
   has_many :projects, :through => :employments
   
   attr_accessible :company_name, :contact_name, :business_unit_tokens,
-                  :address, :phone, :email, :bank_account
+                  :address, :phone, :email, :bank_account, :image
   
   validates :company_name, :contact_name,
             :address, :phone, :email, :bank_account, :presence => true
+
+  mount_uploader :image, ImageUploader
 
   def business_unit_tokens=(ids)
     self.business_unit_ids = ids.split(",")

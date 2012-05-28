@@ -10,14 +10,14 @@
 			<%= admin_area do %>
 				<div class="container nav-collapse" style="width:100%">
 					<ul class="nav center">
-						<li class="<%= set_class_if_current_path("users") %>">
-							<%= link_to current_user  do %>
-							<i class="icon-user icon-white"></i> <%= current_user.name %>
-							<% end %>
-						</li>
 						<li class="<%= 'active' if current_page? '/home' %>">
 							<%= link_to home_path do %>
 							<i class="icon-home icon-white"></i> Home
+							<% end %>
+						</li>
+						<li class="<%= set_class_if_current_path("users") %>">
+							<%= link_to current_user  do %>
+							<i class="icon-user icon-white"></i> <%= current_user.name %>
 							<% end %>
 						</li>
 						<li class="<%= set_class_if_current_path("prospects") %>">
