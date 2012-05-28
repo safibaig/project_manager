@@ -1,25 +1,96 @@
-<h1><%= @client.company_name %></h1>
+<div class="row-fluid">
+	<div class="span3">
+		<%= image_tag @client.image_url(:profile) %>
+		<h4>Client Name: <%= @client.company_name %></h4>
+	</div>
+	<div class="span8 well">
+		<fieldset id="company_information" class="">
+			<legend>Company Information
+			<%= link_to "Edit", edit_client_path(@client), :class => "pull-right" %>
+			</legend>
+			<p>Business Type: <strong><%= @client.business_type %></strong></p>
+			<p>Contact Name: <strong><%= @client.contact_name %></strong></p>
+			<p>Phone: <strong><%= @client.phone %></strong></p>
+			<p>Mobile: <strong><%= @client.mobile %></strong></p>
+			<p>Email: <strong><%= @client.email %></strong></p>
+			<p>Website:  <strong><%= @client.website %></strong></p>
+		</fieldset>
+	</div>
+</div>
 
-<%= render @client.comments %>
+<%= content_for :sidebar do %>
+	<div class="well sidebar-nav">
+		<%= render 'shared/general_admin' %>
+		<ul class="nav nav-list">
+			<%= render 'shared/current_user_projects' %>
+			<li class="nav-header">Clients Administration</li>
+			<li><%= link_to "New Client", new_client_path %></li>
+			<li><%= link_to "View All", clients_path %></li>
+			<li class="nav-header">Filter by:</li>
+			<li class="<%= 'active' if params[:action] == "interested_in_software" %>"><%= link_to "Software", interested_in_software_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_graphic_design" %>"><%= link_to "Graphic Design", interested_in_graphic_design_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_industrial_design" %>"><%= link_to "Industrial Design", interested_in_industrial_design_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_business_planning" %>"><%= link_to "Business Planning", interested_in_business_planning_clients_path %></li>
+			<li class="<%= 'active' if params[:action] == "interested_in_research_and_development" %>"><%= link_to "Research & Development", interested_in_research_and_development_clients_path %></li>
+			<li class="nav-header">Dates:</li>
+			<%= form_tag by_date_range_clients_path, :method => :get do %>
+				<%= text_field_tag 'from', params[:from], :class => 'generic calendar', :placeholder => "From..." %>
+				<%= text_field_tag 'to', params[:to], :class => 'generic calendar', :placeholder => "To..." %>
+				<%= submit_tag "Filter", :class => "btn btn-mini btn-primary" %>
+			<% end %>
+			<li class="nav-header">Search Client</li>
+			<li>
+				<%= form_tag clients_path, :method => :get do %>
+					<%= text_field_tag 'search', params[:search], :class => 'generic glass', :placeholder => "Search client..." %>
+				<% end %>
+			</li>
+		</ul>	
+		
+	</div>
+<% end %>
+<div class="row-fluid">
+	<div class="span4 well">
+		<h3>Projects with <%= @client.company_name %></h3>
+		<ul id="client_projects_list">
+			<% @client.projects.recent.each do |project| %>
+				<li>
+				<%= link_to project.name.titleize, project %> |
+				<%= project.project_manager %> |
+				<%= project.status %> |
+				<%= number_to_currency project.estimation %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="span7">
+		<div class="well">
+			<h6>Ingresos Potenciales | Ingresos Generados</h6>
+		</div>
+		<div class="well">
+			<strong>Internal Blog About Customer: (<%= pluralize @client.comments.size, 'comment' %>)</strong>
+			<%= link_to '#new_comment_form', "data-toggle" => 'modal', :class => "pull-right btn btn-primary btn-mini" do %>
+				<i class="icon-plus icon-white"></i> New Comment
+			<% end %>
+			<%= render @client.comments.recent %>
+		</div>
+	</div>
+	
+</div>
 
-<fieldset id="new_comment" class="">
-	<legend>New comment</legend>
-</fieldset>
-<%= simple_form_for Comment.new do |f| %>
-	<%= f.input :content, :input_html => { :rows => 10, :cols => 20, :class => "generic" } %>
+<div class="modal hide fade" id="new_comment_form">
+  <div class="modal-header">
+    <a class="close" href="#" data-dismiss="modal">&times;</a>
+    <h3>New Comment for <%= @client.company_name %></h3>
+  </div>
+  <%= simple_form_for(Comment.new, :html => { :class => "" }) do |f| %>
+  <div class="modal-body">
+	<%= f.input :content, :input_html => { :rows => 10, :cols => 20, :class => "generic_area" } %>
 	<%= f.hidden_field :commentable_id, :value => @client.id %>
 	<%= f.hidden_field :commentable_type, :value => "Client" %>
-  	<%= f.submit "Post comment", :class => "btn btn-success" %>
-<% end %>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              clients_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_client_path(@client), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              client_path(@client),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+  </div>
+  <div class="modal-footer">
+	<%= f.submit "Post comment", :class => "btn btn-success" %>
+	<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  <% end %>
+  </div>
 </div>

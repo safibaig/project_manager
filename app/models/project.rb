@@ -40,6 +40,10 @@ class Project < ActiveRecord::Base
     where(:kind => "External")
   }
   
+  scope :recent, lambda {
+    order("created_at DESC").limit(5)
+  }
+  
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
   
   KINDS = [["Internal", "Internal"],
