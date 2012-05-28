@@ -326,3 +326,16 @@ div.comment {
 	margin:15px 0px 0px 0px;
 }
 
+.project_title {
+	width:100%;
+}
+
+div#project_status {
+	background-color:#7aba83;
+	padding:15px;
+	@include rounded(5px);
+	font-size:18px;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}

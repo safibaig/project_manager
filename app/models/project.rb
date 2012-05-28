@@ -61,6 +61,8 @@ class Project < ActiveRecord::Base
                   ["Innovative Lab", "Innovative Lab"],
                   ["Phone", "Phone"]]
   
+  mount_uploader :image, ImageUploader
+  
   def supplier_tokens=(ids)
     self.supplier_ids = ids.split(",")
   end

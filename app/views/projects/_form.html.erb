@@ -27,7 +27,7 @@
 
 <div class="row-fluid">
 	<%= yield(:fieldset) %>
-<%= simple_form_for @project, :html => { :class => 'well' } do |f| %>
+<%= simple_form_for @project, :html => { :class => 'well', :multipart => true } do |f| %>
 	
 	<div class="row-fluid">
 		<div class="span4">
@@ -68,6 +68,10 @@
 	<div class="row-fluid">
 		<div class="span4">
 			<%= f.input :lead_source, :collection => Project::LEAD_SOURCES, :prompt => "Select a lead source", :input_html => {:class => "generic_select"}%>
+		</div>
+		<div class="span4">
+			<%= f.label :image, "Logo" %>
+			<%= f.file_field :image %>
 		</div>
 	</div>
 
