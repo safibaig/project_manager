@@ -33,7 +33,7 @@
 		<% else %>
 			<%= image_tag "user-generic_admin.png" %>
 		<% end %>
-		<h4>Client Name: <%= @project.client.company_name %></h4>
+		<h4>Client Name: <%= @project.try(:client).try(:company_name) %></h4>
 	</div>
 	<div class="span8">
 		<div id="project_status" class="pull-right">
@@ -48,12 +48,12 @@
 				<legend>Project Information
 				<%= link_to "Edit", edit_project_path(@project), :class => "pull-right" %>
 				</legend>
-				<p>Business Type: <strong><%= @project.client.business_type %></strong></p>
-				<p>Contact Name: <strong><%= @project.client.contact_name %></strong></p>
-				<p>Phone: <strong><%= @project.client.phone %></strong></p>
-				<p>Mobile: <strong><%= @project.client.mobile %></strong></p>
-				<p>Email: <strong><%= @project.client.email %></strong></p>
-				<p>Website:  <strong><%= @project.client.website %></strong></p>
+				<p>Business Type: <strong><%= @project.try(:client).try(:business_type) %></strong></p>
+				<p>Contact Name: <strong><%= @project.try(:client).try(:contact_name) %></strong></p>
+				<p>Phone: <strong><%= @project.try(:client).try(:phone) %></strong></p>
+				<p>Mobile: <strong><%= @project.try(:client).try(:mobile) %></strong></p>
+				<p>Email: <strong><%= @project.try(:client).try(:email) %></strong></p>
+				<p>Website:  <strong><%= @project.try(:client).try(:website) %></strong></p>
 			</fieldset>
 		</div>
 	</div>
