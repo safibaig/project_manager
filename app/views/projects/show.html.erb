@@ -33,6 +33,7 @@
 		<% else %>
 			<%= image_tag "user-generic_admin.png" %>
 		<% end %>
+		<br /><br />
 		<h4>Client Name: <%= @project.try(:client).try(:company_name) %></h4>
 	</div>
 	<div class="span8">
