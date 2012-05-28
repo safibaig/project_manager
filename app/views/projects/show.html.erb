@@ -28,7 +28,11 @@
 <div class="row-fluid">
 	<div class="span3">
 		<br /><br /><br />
-		<%= image_tag @project.image_url(:profile) %>
+		<% if @project.image? %>
+			<%= image_tag @project.image_url(:profile) %>
+		<% else %>
+			<%= image_tag @project.client.image_url(:profile) %>
+		<% end %>
 		<h4>Client Name: <%= @project.client.company_name %></h4>
 	</div>
 	<div class="span8">

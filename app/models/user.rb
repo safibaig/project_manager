@@ -23,11 +23,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :projects
+  has_many :comments, :as => :commentable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :rol, :gender, :image
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, 
+                  :last_name, :rol, :gender, :image, :job_title, :degree, :address, :phone
   
   validates :name, :last_name, :rol, :presence => true
   
@@ -71,4 +73,13 @@ class User < ActiveRecord::Base
   def self.find_by_status(status)
     where(:status => status)
   end
+  
+  def status_to_s
+    if status == 1
+      "Active"
+    else
+      "Inactive"
+    end
+  end
+  
 end
