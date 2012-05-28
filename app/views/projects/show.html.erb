@@ -31,7 +31,7 @@
 		<% if @project.image? %>
 			<%= image_tag @project.image_url(:profile) %>
 		<% else %>
-			<%= image_tag @project.client.image_url(:profile) %>
+			<%= image_tag "user-generic_admin.png" %>
 		<% end %>
 		<h4>Client Name: <%= @project.client.company_name %></h4>
 	</div>
