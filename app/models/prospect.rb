@@ -29,13 +29,18 @@ class Prospect < ActiveRecord::Base
             :presence => true
   
   attr_accessible :business_type, :company_name, :contact_name, :status,
-                  :phone, :mobile, :email, :website, :address, :business_unit_tokens
+                  :phone, :mobile, :email, :website, :address, :business_unit_tokens,
+                  :company_size
   
   STATUS = [["0 - Canceled", 0],
             ["1 - Added", 1],
             ["2 - Contacted", 2],
             ["3 - Meeting", 3],
             ["4 - Client", 4]]
+  
+  COMPANY_SIZE = [["Startup","Startup"],
+                  ["PyMe", "PyMe"],
+                  ["Grande", "Grande"]]
             
   scope :interested_in_software, lambda {
     joins(:business_units).where("business_units.name = 'Software'")
