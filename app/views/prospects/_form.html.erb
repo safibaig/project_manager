@@ -29,7 +29,6 @@
 	<fieldset id="" class="">
 		<legend><%= yield(:legend) %></legend>
 	<%= simple_form_for @prospect, :html => { :class => 'well' } do |f| %>
-	
 	<div class="row-fluid">
 		<div class="span4">
 			<%= f.input :status, :collection => Prospect::STATUS, :prompt => "Select a status", :input_html => {:class => "generic_select"} %>

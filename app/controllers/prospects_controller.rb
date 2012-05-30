@@ -3,31 +3,22 @@ class ProspectsController < ApplicationController
   layout "dashboard"
   before_filter :authenticate_user!
   
-  add_breadcrumb "Prospects", "/prospects", :except => [:index,:interested_in_software, 
-                                                        :interested_in_graphic_design,
-                                                        :interested_in_industrial_design,
-                                                        :interested_in_business_planning,
-                                                        :interested_in_research_and_development,
-                                                        :filter_by_status,
-                                                        :by_date_range]
-  add_breadcrumb "New prospect", "",  :only => [:new, :create]
-  add_breadcrumb "Editing prospect","", :only => [:edit, :update]
-  
   def index
     @prospects = Prospect.search(params)
   end
 
   def show
     @prospect = Prospect.find(params[:id])
-    add_breadcrumb "#{@prospect.company_name}"
   end
 
   def new
-    @prospect = Prospect.new
+    @user = current_user
+    @prospect = @user.build_prospect
   end
   
   def create
-    @prospect = Prospect.new(params[:prospect])
+    @user = current_user
+    @prospect = @user.build_prospect(params[:prospect])
     if @prospect.save
       redirect_to prospects_path, :success => 'Prospect was successfully created.' 
     else
