@@ -55,6 +55,8 @@
 				<p>Mobile: <strong><%= @project.try(:client).try(:mobile) %></strong></p>
 				<p>Email: <strong><%= @project.try(:client).try(:email) %></strong></p>
 				<p>Website:  <strong><%= @project.try(:client).try(:website) %></strong></p>
+				<p>Description:</p>
+				<p><%= @project.description %></p>
 			</fieldset>
 		</div>
 	</div>
