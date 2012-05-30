@@ -30,7 +30,7 @@ class Prospect < ActiveRecord::Base
   
   attr_accessible :business_type, :company_name, :contact_name, :status,
                   :phone, :mobile, :email, :website, :address, :business_unit_tokens,
-                  :company_size
+                  :company_size, :description
   
   STATUS = [["0 - Canceled", 0],
             ["1 - Added", 1],
