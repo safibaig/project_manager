@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528053752) do
+ActiveRecord::Schema.define(:version => 20120530044611) do
 
   create_table "business_units", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120528053752) do
     t.datetime "updated_at",                               :null => false
     t.string   "kind",             :default => "External"
     t.string   "image"
+    t.text     "description"
   end
 
   create_table "prospects", :force => true do |t|
