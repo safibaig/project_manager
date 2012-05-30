@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :comments, :as => :commentable
   has_one :prospect
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

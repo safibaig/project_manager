@@ -1,8 +1,9 @@
 <div class="comment">
 	<%= comment.content %> 
 	<div class="pull-right">
-		<%= link_to "X", comment_path(comment), :class => "btn btn-danger btn-mini pull-right", :method => :delete %>
-		<h6><%= comment.created_at.strftime("%d-%B-%Y") %></h6>
+		<h6 class="pull-right"><%= comment.created_at.strftime("%d-%B-%Y") %> by <%= comment.try(:user).try(:name) %></h6>
+		<br />
+		<%= link_to "&times;".html_safe, comment_path(comment), :class => "close pull-right", :method => :delete %>
 	</div>
 </div>
 <br />
