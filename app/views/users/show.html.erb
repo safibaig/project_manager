@@ -32,7 +32,7 @@
 <div class="row-fluid">
 	<div class="span5">
 		<div class="well">
-			<h3>My Projects</h3>
+			<h3><%= link_to "My Projects", user_projects_path(@user) %></h3>
 			<ul id="client_projects_list">
 				<% @user.projects.recent.each do |project| %>
 					<li>

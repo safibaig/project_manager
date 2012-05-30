@@ -68,7 +68,9 @@ class Project < ActiveRecord::Base
   end
   
   def self.search(params={})
-    if params[:search].present?
+    if params[:user_id].present?
+      where("name #{LIKE} ? AND user_id = ?", "%#{params[:search]}%", "#{params[:user_id]}")
+    elsif params[:search].present?
       where("name #{LIKE} ?", "%#{params[:search]}%")
     else
       all
