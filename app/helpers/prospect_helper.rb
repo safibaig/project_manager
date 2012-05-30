@@ -10,4 +10,14 @@ module ProspectHelper
     end
   end
   
+  def render_string_status(status)
+    title = case status
+      when 0 then 'Canceled'
+      when 1 then 'Call'
+      when 2 then 'First Date'
+      when 3 then 'Second Call'
+      when 4 then 'Client'
+    end
+  end
+  
 end

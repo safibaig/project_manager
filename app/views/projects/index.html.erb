@@ -52,7 +52,7 @@
         <td><%= project.project_manager %></td>
         <td><%= project.status %></td>
         <td><%= project.lead_source %></td>
-        <td><%= project.estimation %></td>
+        <td><%= number_to_currency project.estimation %></td>
         <td><%= project.created_at.strftime("%b %d, %Y") %></td>
         <td>
           <%= link_to "Edit", edit_project_path(project), :class => 'btn btn-mini' %>

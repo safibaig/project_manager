@@ -1,10 +1,10 @@
 <li class="nav-header">Filter by:</li>
 <li><h6>Status:</h6></li>
-<span class="status_link" id="red"><%= link_to "0", filter_by_status_prospects_path(0) %></span>
-<span class="status_link" id="orange"><%= link_to "1", filter_by_status_prospects_path(1) %></span>
-<span class="status_link" id="yellow"><%= link_to "2", filter_by_status_prospects_path(2) %></span>
-<span class="status_link" id="green"><%= link_to "3", filter_by_status_prospects_path(3) %></span>
-<span class="status_link" id="blue"><%= link_to "4", filter_by_status_prospects_path(4) %></span>
+<span class="status_link" id="red"><%= link_to "0", filter_by_status_prospects_path(0), :class => "prospect_link", :title => "Canceled"%></span>
+<span class="status_link" id="orange"><%= link_to "1", filter_by_status_prospects_path(1), :class => "prospect_link", :title => "Call" %></span>
+<span class="status_link" id="yellow"><%= link_to "2", filter_by_status_prospects_path(2), :class => "prospect_link", :title => "First Date" %></span>
+<span class="status_link" id="green"><%= link_to "3", filter_by_status_prospects_path(3), :class => "prospect_link", :title => "Second Call" %></span>
+<span class="status_link" id="blue"><%= link_to "4", filter_by_status_prospects_path(4), :class => "prospect_link", :title => "Client" %></span>
 <li>&nbsp;</li>
 <li><h6>Interest:</h6></li>
 <li class="<%= 'active' if params[:action] == "interested_in_software" %>"><%= link_to "Software", interested_in_software_prospects_path %></li>

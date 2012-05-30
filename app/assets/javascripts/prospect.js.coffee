@@ -13,4 +13,4 @@ $ ->
 		hintText: "Type an interest"
 	})
 	
-	
+	$('.prospect_link').tooltip('hide')
