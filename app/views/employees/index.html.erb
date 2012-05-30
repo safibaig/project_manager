@@ -18,9 +18,10 @@
 <% end %>
 <fieldset id="list_of_employees" class="">
 	<legend>List of Employees</legend>
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered no-layout">
   <thead>
     <tr>
+	  <th></th>
       <th>Full Name</th>
       <th>Email</th>
       <th>Last sign in at</th>
@@ -28,8 +29,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @employees.each do |employee| %>
+    <% @employees.each_with_index do |employee, index| %>
       <tr>
+	    <td><%= index + 1 %></td>
         <td><%= link_to employee, employee %></td>
         <td><%= employee.email %></td>
         <td><%= employee.try(:last_sign_in_at).try(:strftime, "%b %d, %Y") %></td>
