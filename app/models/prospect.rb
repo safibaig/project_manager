@@ -64,6 +64,21 @@ class Prospect < ActiveRecord::Base
   
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
   
+  after_save :convert_to_client, :if => :status_is_four_and_is_not_client?
+  
+  def convert_to_client
+    attributes = self.attributes
+    client = Client.create(:business_type => attributes["business_type"], :company_name => attributes["company_name"],
+                  :contact_name => attributes["contact_name"], :phone => attributes["phone"], :mobile => attributes["mobile"],
+                  :email => attributes["email"], :website => attributes["website"])
+    client.interest_ids = self.interest_ids
+    self.update_attribute(:is_client, true)
+  end
+  
+  def status_is_four_and_is_not_client?
+    self.status == 4 and !self.is_client?
+  end
+  
   def business_unit_tokens=(ids)
     self.business_unit_ids = ids.split(",")
   end
