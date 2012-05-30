@@ -30,11 +30,11 @@ class Prospect < ActiveRecord::Base
   attr_accessible :business_type, :company_name, :contact_name, :status,
                   :phone, :mobile, :email, :website, :address, :business_unit_tokens
   
-  STATUS = [["Rojo", 0],
-            ["Naranja", 1],
-            ["Amarillo", 2],
-            ["Verde", 3],
-            ["Gris", 4]]
+  STATUS = [["Cancel", 0],
+            ["Call", 1],
+            ["First Date", 2],
+            ["Second Call", 3],
+            ["Client", 4]]
             
   scope :interested_in_software, lambda {
     joins(:business_units).where("business_units.name = 'Software'")
