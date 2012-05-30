@@ -64,7 +64,7 @@ class Project < ActiveRecord::Base
   STATUS = [["0 - Canceled", 0],
             ["1 - QuickLook", 1],
             ["2 - Proposal Development", 2],
-            ["3 - Proposal Deliver ED", 3],
+            ["3 - Proposal Delivered", 3],
             ["4 - On Operation", 4],
             ["5 - Delivered & Paid", 5]]
   

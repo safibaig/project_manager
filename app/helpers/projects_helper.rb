@@ -49,7 +49,7 @@ module ProjectsHelper
        when 0 then 'Canceled'
        when 1 then 'QuickLook'
        when 2 then 'Proposal Development'
-       when 3 then 'Proposal Deliver ED'
+       when 3 then 'Proposal Delivered'
        when 4 then 'On Operation'
        when 5 then 'Delivered & Paid'
      end
