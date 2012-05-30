@@ -43,5 +43,16 @@ module ProjectsHelper
      array.to_json
     end
    end
+   
+   def string_status(status)
+     title = case status
+       when 0 then 'Cancel'
+       when 1 then 'QuickLook'
+       when 2 then 'Proposal Development'
+       when 3 then 'Proposal Deliver ED'
+       when 4 then 'On Operation'
+       when 5 then 'Delivered & Paid'
+     end
+   end
   
 end

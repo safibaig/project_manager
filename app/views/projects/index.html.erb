@@ -50,7 +50,7 @@
         <td><%= project.user %></td>
         <td><%= project.business_unit %></td>
         <td><%= project.project_manager %></td>
-        <td><%= project.status %></td>
+        <td><%= string_status project.status %></td>
         <td><%= project.lead_source %></td>
         <td><%= number_to_currency project.estimation %></td>
         <td><%= project.created_at.strftime("%b %d, %Y") %></td>

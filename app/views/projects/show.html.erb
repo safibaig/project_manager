@@ -40,9 +40,9 @@
 		<div id="project_status" class="pull-right">
 			<%= @project.status %> 
 			<br />
-			Project Status
+			<%= string_status(@project.status) %>
 		</div>
-		<br />
+		<br /><br />
 		<h1 id="project_title"><%= @project.name.titleize %></h1>
 		<div class="well">
 			<fieldset id="project_information">
