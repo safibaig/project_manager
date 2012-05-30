@@ -58,7 +58,7 @@
 			<%= f.input :supplier_tokens, :input_html => { "data-suppliers" => @project.suppliers.map(&:attributes).to_json }, :label => "Suppliers" %>		
 		</div>
 		<div class="span4">
-			<%= f.input :status, :input_html => { :class => "generic general" } %>
+			<%= f.input :status, :collection => Project::STATUS, :prompt => "Select a lead source", :input_html => { :class => "generic_select" } %>
 		</div>
 		<div class="span4">
 			<%= f.input :estimation, :input_html => { :class => "generic money" } %>

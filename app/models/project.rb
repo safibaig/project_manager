@@ -61,6 +61,13 @@ class Project < ActiveRecord::Base
                   ["Innovative Lab", "Innovative Lab"],
                   ["Phone", "Phone"]]
   
+  STATUS = [["0 - Canceled", 0],
+            ["1 - QuickLook", 1],
+            ["2 - Proposal Development", 2],
+            ["3 - Proposal Deliver ED", 3],
+            ["4 - On Operation", 4],
+            ["5 - Delivered & Paid", 5]]
+  
   mount_uploader :image, ImageUploader
   
   def supplier_tokens=(ids)

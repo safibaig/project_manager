@@ -29,7 +29,6 @@
 	      <th>Interests</th>
 		  <th>Contact Name</th>
 	      <th>Phone</th>
-		  <th>Mobile</th>
 	      <th>Email</th>
 	      <th>Actions</th>
     </tr>
@@ -44,7 +43,6 @@
         <td><%=prospect.business_unit_interests.to_sentence %></td>
         <td><%=prospect.contact_name %></td>
         <td><%=prospect.phone %></td>
-        <td><%=prospect.mobile %></td>
         <td><%=prospect.email %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

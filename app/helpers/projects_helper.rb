@@ -46,7 +46,7 @@ module ProjectsHelper
    
    def string_status(status)
      title = case status
-       when 0 then 'Cancel'
+       when 0 then 'Canceled'
        when 1 then 'QuickLook'
        when 2 then 'Proposal Development'
        when 3 then 'Proposal Deliver ED'
