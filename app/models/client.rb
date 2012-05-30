@@ -27,7 +27,7 @@ class Client < ActiveRecord::Base
                   :phone, :mobile, :email, :website, :address, :business_unit_tokens, :image
   
   validates :company_name, 
-            :contact_name, :phone, :mobile, :email,
+            :contact_name, :phone, :email,
             :presence => true 
           
   scope :interested_in_software, lambda {

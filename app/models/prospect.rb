@@ -25,7 +25,7 @@ class Prospect < ActiveRecord::Base
   attr_reader :business_unit_tokens
   
   validates :business_type, :company_name, :status,
-            :contact_name, :phone, :mobile, :email,
+            :contact_name, :phone, :email,
             :presence => true
   
   attr_accessible :business_type, :company_name, :contact_name, :status,
