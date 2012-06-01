@@ -40,7 +40,7 @@ class Prospect < ActiveRecord::Base
   
   COMPANY_SIZE = [["Startup","Startup"],
                   ["PyMe", "PyMe"],
-                  ["Grande", "Grande"]]
+                  ["Corporation", "Corporation"]]
             
   scope :interested_in_software, lambda {
     joins(:business_units).where("business_units.name = 'Software'")

@@ -32,7 +32,7 @@ BusinessUnit.create(:name => "Graphic Design")
 BusinessUnit.create(:name => "Software")
 BusinessUnit.create(:name => "Industrial Design")
 BusinessUnit.create(:name => "Business Planning")
-BusinessUnit.create(:name => "Research and Development")
+BusinessUnit.create(:name => "R&D")
 
 DEPARTMENTS = ["Business Development","Legal","Finance","Marketing","Human Development",
                "Graphic Design", "Software", "Industrial Design", "Business Planning", 
