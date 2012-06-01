@@ -84,4 +84,8 @@ class User < ActiveRecord::Base
     end
   end
   
+  def project_estimation_sum
+    projects.map(&:estimation).inject(:+)
+  end
+  
 end

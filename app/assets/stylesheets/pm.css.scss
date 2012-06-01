@@ -340,3 +340,14 @@ div#project_status {
 	font-weight:bold;
 	text-align:center;
 }
+
+div#user_status {
+	background-color:#7aba83;
+	padding:10px;
+	@include rounded(5px);
+	font-size:15px;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+
