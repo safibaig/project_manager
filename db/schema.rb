@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120601023816) do
+ActiveRecord::Schema.define(:version => 20120601191956) do
 
   create_table "archives", :force => true do |t|
     t.string   "file"
@@ -34,10 +34,13 @@ ActiveRecord::Schema.define(:version => 20120601023816) do
     t.string   "mobile"
     t.string   "email"
     t.string   "website"
-    t.text     "address"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "image"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
   end
 
   create_table "comments", :force => true do |t|
@@ -95,7 +98,6 @@ ActiveRecord::Schema.define(:version => 20120601023816) do
     t.string   "mobile"
     t.string   "email"
     t.string   "website"
-    t.text     "address"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.integer  "status",        :default => 2
@@ -103,6 +105,10 @@ ActiveRecord::Schema.define(:version => 20120601023816) do
     t.string   "company_size"
     t.text     "description"
     t.boolean  "is_client",     :default => false
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
   end
 
   create_table "sellings", :force => true do |t|
@@ -116,13 +122,16 @@ ActiveRecord::Schema.define(:version => 20120601023816) do
     t.string   "company_name"
     t.string   "contact_name"
     t.string   "business_type"
-    t.text     "address"
     t.string   "phone"
     t.string   "email"
     t.string   "bank_account"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "image"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
   end
 
   create_table "users", :force => true do |t|
@@ -141,7 +150,6 @@ ActiveRecord::Schema.define(:version => 20120601023816) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "rol"
-    t.text     "address",                :default => ""
     t.string   "phone",                  :default => ""
     t.string   "cv",                     :default => ""
     t.string   "portfolio",              :default => ""
@@ -151,6 +159,10 @@ ActiveRecord::Schema.define(:version => 20120601023816) do
     t.string   "gender"
     t.string   "image"
     t.string   "job_title",              :default => ""
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -29,8 +29,8 @@ class Prospect < ActiveRecord::Base
             :presence => true
   
   attr_accessible :business_type, :company_name, :contact_name, :status,
-                  :phone, :mobile, :email, :website, :address, :business_unit_tokens,
-                  :company_size, :description
+                  :phone, :mobile, :email, :website, :business_unit_tokens,
+                  :company_size, :description, :street, :city, :state, :country
   
   STATUS = [["0 - Canceled", 0],
             ["1 - Added", 1],
@@ -72,7 +72,8 @@ class Prospect < ActiveRecord::Base
     attributes = self.attributes
     client = Client.create(:business_type => attributes["business_type"], :company_name => attributes["company_name"],
                   :contact_name => attributes["contact_name"], :phone => attributes["phone"], :mobile => attributes["mobile"],
-                  :email => attributes["email"], :website => attributes["website"])
+                  :email => attributes["email"], :website => attributes["website"], :street => attributes["street"],
+                  :city => attributes["city"], :state => attributes["state"], :country => attributes["country"])
     client.interest_ids = self.interest_ids
     self.update_attribute(:is_client, true)
   end
@@ -99,6 +100,10 @@ class Prospect < ActiveRecord::Base
   
   def self.find_by_status(status)
     where(:status => status)
+  end
+  
+  def address
+    "#{self.street}, #{self.city} #{self.state}"
   end
   
 end

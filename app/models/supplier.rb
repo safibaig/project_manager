@@ -24,7 +24,8 @@ class Supplier < ActiveRecord::Base
   has_many :projects, :through => :employments
   
   attr_accessible :company_name, :contact_name, :business_unit_tokens,
-                  :address, :phone, :email, :bank_account, :image
+                  :phone, :email, :bank_account, :image, :street,
+                  :city, :state, :country
   
   validates :company_name, :contact_name,
             :address, :phone, :email, :bank_account, :presence => true
@@ -47,6 +48,10 @@ class Supplier < ActiveRecord::Base
     else
       page(params[:page])
     end
+  end
+  
+  def address
+     "#{self.street}, #{self.city} #{self.state}"
   end
 
 end

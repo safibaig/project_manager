@@ -24,7 +24,8 @@ class Client < ActiveRecord::Base
   attr_reader :business_unit_tokens
   
   attr_accessible :business_type, :company_name, :contact_name,
-                  :phone, :mobile, :email, :website, :address, :business_unit_tokens, :image
+                  :phone, :mobile, :email, :website, :business_unit_tokens, :image,
+                  :street, :city, :state, :country
   
   validates :company_name, 
             :contact_name, :phone, :email,
@@ -75,5 +76,9 @@ class Client < ActiveRecord::Base
       where("company_name #{LIKE} ?", "%#{params[:q]}%").page(params[:page])
     end
   end
+  
+  def address
+     "#{self.street}, #{self.city} #{self.state}"
+   end
   
 end
