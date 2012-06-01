@@ -34,16 +34,17 @@ class EmployeesController < ApplicationController
   end
   
   def filter_by_status
-    @employees = User.find_by_status(params[:status])
+    @employees = User.find_by_status(params[:status]).page(params[:page])
+    render :index
   end
   
   def male
-    @employees = User.male
+    @employees = User.male.page(params[:page])
     render :index
   end
   
   def female
-    @employees = User.female
+    @employees = User.female.page(params[:page])
     render :index
   end
 end

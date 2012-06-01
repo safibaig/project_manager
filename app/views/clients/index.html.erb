@@ -47,7 +47,7 @@
 	  <tbody>
 	    <% @clients.each_with_index do |client, index| %>
 	      <tr>
-		    <td><%= index + 1 %></td>
+		    <td><%= render_index index %></td>
 	        <td><%= link_to client.company_name, client %></td>
 	        <td><%= client.business_type %></td>
 	        <td><%= client.business_unit_interests.to_sentence %></td>
@@ -68,3 +68,6 @@
 	</table>	
 </div>
 </fieldset>
+<div class="center">
+	<%= paginate @clients %>
+</div>

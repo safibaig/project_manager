@@ -36,7 +36,7 @@
   <tbody>
     <% @prospects.each_with_index do |prospect, index| %>
       <tr>
-		<td><%= index + 1 %></td>
+		<td><%= render_index index %></td>
 		<td><span class="status_link <%= render_color(prospect.status) %>"><%= link_to prospect.status, '#', :class => "prospect_link", :title => "#{render_string_status(prospect.status)}" %></span></td>
         <td><%= link_to prospect.company_name, prospect %></td>
         <td><%=prospect.business_type %></td>
@@ -58,3 +58,6 @@
   </tbody>
 </table>
 </fieldset>
+<div class="center">
+	<%= paginate @prospects %>
+</div>

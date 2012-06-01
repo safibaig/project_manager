@@ -64,6 +64,8 @@ class Prospect < ActiveRecord::Base
   
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
   
+  paginates_per 50
+  
   after_save :convert_to_client, :if => :status_is_four_and_is_not_client?
   
   def convert_to_client
@@ -89,9 +91,9 @@ class Prospect < ActiveRecord::Base
   
   def self.search(params={})
     if params[:search].present?
-      where("company_name #{LIKE} ?", "%#{params[:search]}%")
+      where("company_name #{LIKE} ?", "%#{params[:search]}%").page(params[:page])
     else
-      all
+      page(params[:page])
     end
   end
   

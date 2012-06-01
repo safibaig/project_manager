@@ -24,4 +24,13 @@ module ApplicationHelper
     end
   end
   
+  def render_index(index)
+    if params[:page].present?
+      index + (2 * params[:page].to_i) - 1 
+    else
+      index + 1
+    end
+    
+  end
+  
 end

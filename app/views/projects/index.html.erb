@@ -46,7 +46,7 @@
   <tbody>
     <% @projects.each_with_index do |project, index| %>
       <tr>
-		<td><%= index + 1 %></td>
+		<td><%= render_index index %></td>
         <td><%= link_to project.name, project %></td>
         <td><%= project.client %></td>
         <td><%= project.user %></td>
@@ -65,3 +65,6 @@
   </tbody>
 </table>
 </fieldset>
+<div class="center">
+	<%= paginate @projects %>
+</div>

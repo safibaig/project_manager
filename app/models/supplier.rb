@@ -29,6 +29,8 @@ class Supplier < ActiveRecord::Base
   validates :company_name, :contact_name,
             :address, :phone, :email, :bank_account, :presence => true
 
+  paginates_per 50
+
   mount_uploader :image, ImageUploader
 
   def business_unit_tokens=(ids)
@@ -41,9 +43,9 @@ class Supplier < ActiveRecord::Base
   
   def self.find_by_params(params={})
     if params[:search].present?
-      where("company_name #{LIKE} ?", "%#{params[:search]}%")
+      where("company_name #{LIKE} ?", "%#{params[:search]}%").page(params[:page])
     else
-      all
+      page(params[:page])
     end
   end
 

@@ -35,8 +35,10 @@ class User < ActiveRecord::Base
   
   validates :name, :last_name, :rol, :presence => true
   
+  paginates_per 50
+  
   scope :employees, lambda { 
-      where(:rol => "Employee")
+    where(:rol => "Employee")
   }
   
   scope :male, lambda {
@@ -66,9 +68,9 @@ class User < ActiveRecord::Base
   
   def self.search(params)
     if params[:search].present?
-      where("name #{LIKE} ?", "%#{params[:search]}%").employees
+      where("name #{LIKE} ?", "%#{params[:search]}%").page(params[:page])
     else
-      all
+      page(params[:page])
     end
   end
   

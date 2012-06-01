@@ -3,10 +3,6 @@ class SuppliersController < ApplicationController
   layout "dashboard"
   before_filter :authenticate_user!
   
-  add_breadcrumb "Suppliers", "/suppliers", :except => :index
-  add_breadcrumb "New supplier", "",  :only => [:new, :create]
-  add_breadcrumb "Editing supplier","", :only => [:edit, :update]
-  
   def index
     @suppliers = Supplier.find_by_params(params)
     respond_to do |format|

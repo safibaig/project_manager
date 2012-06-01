@@ -47,10 +47,12 @@ class Client < ActiveRecord::Base
   }
   
   scope :interested_in_research_and_development, lambda {
-    joins(:business_units).where("business_units.name = 'Research and Development'")
+    joins(:business_units).where("business_units.name = 'R&D'")
   }
   
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
+  
+  paginates_per 50
   
   mount_uploader :image, ImageUploader
             
@@ -68,9 +70,9 @@ class Client < ActiveRecord::Base
   
   def self.search(params={})
     if params[:search].present?
-      where("company_name #{LIKE} ?", "%#{params[:search]}%")
+      where("company_name #{LIKE} ?", "%#{params[:search]}%").page(params[:page])
     else
-      where("company_name #{LIKE} ?", "%#{params[:q]}%")
+      where("company_name #{LIKE} ?", "%#{params[:q]}%").page(params[:page])
     end
   end
   

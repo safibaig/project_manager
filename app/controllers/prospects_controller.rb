@@ -46,36 +46,36 @@ class ProspectsController < ApplicationController
   end
   
   def filter_by_status
-    @prospects = Prospect.find_by_status(params[:status])
+    @prospects = Prospect.find_by_status(params[:status]).page(params[:page])
   end
   
   def interested_in_software
-    @prospects = Prospect.interested_in_software
+    @prospects = Prospect.interested_in_software.page(params[:page])
     render :index
   end
   
   def interested_in_graphic_design
-     @prospects = Prospect.interested_in_graphic_design
+     @prospects = Prospect.interested_in_graphic_design.page(params[:page])
      render :index
    end
   
   def interested_in_industrial_design
-    @prospects = Prospect.interested_in_industrial_design
+    @prospects = Prospect.interested_in_industrial_design.page(params[:page])
     render :index
   end
     
   def interested_in_business_planning
-     @prospects = Prospect.interested_in_business_planning
+     @prospects = Prospect.interested_in_business_planning.page(params[:page])
      render :index
   end
   
   def interested_in_research_and_development
-    @prospects = Prospect.interested_in_research_and_development
+    @prospects = Prospect.interested_in_research_and_development.page(params[:page])
     render :index
   end
   
   def by_date_range
-    @prospects = Prospect.by_date_range(params[:from], params[:to])
+    @prospects = Prospect.by_date_range(params[:from], params[:to]).page(params[:page])
     render :index
   end
   

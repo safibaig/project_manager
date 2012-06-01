@@ -68,6 +68,8 @@ class Project < ActiveRecord::Base
             ["4 - On Operation", 4],
             ["5 - Delivered & Paid", 5]]
   
+  paginates_per 50
+  
   mount_uploader :image, ImageUploader
   
   def supplier_tokens=(ids)
@@ -76,11 +78,11 @@ class Project < ActiveRecord::Base
   
   def self.search(params={})
     if params[:user_id].present?
-      where("name #{LIKE} ? AND user_id = ?", "%#{params[:search]}%", "#{params[:user_id]}")
+      where("name #{LIKE} ? AND user_id = ?", "%#{params[:search]}%", "#{params[:user_id]}").page(params[:page])
     elsif params[:search].present?
-      where("name #{LIKE} ?", "%#{params[:search]}%")
+      where("name #{LIKE} ?", "%#{params[:search]}%").page(params[:page])
     else
-      all
+      page(params[:page])
     end
   end
   

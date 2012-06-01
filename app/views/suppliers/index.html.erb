@@ -35,7 +35,7 @@
   <tbody>
     <% @suppliers.each_with_index do |supplier, index| %>
       <tr>
-		<td><%= index + 1 %></td>
+		<td><%= render_index index %></td>
 	    <td><%= link_to supplier.company_name, supplier %></td>
         <td><%= supplier.contact_name %></td>
         <td><%= supplier.business_unit_sellings.to_sentence %></td>
@@ -53,3 +53,6 @@
   </tbody>
 </table>
 </fieldset>
+<div class="center">
+	<%= paginate @suppliers %>
+</div>
