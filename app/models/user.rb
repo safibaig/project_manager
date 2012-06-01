@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
     if params[:search].present?
       where("name #{LIKE} ?", "%#{params[:search]}%").employees
     else
-      employees
+      all
     end
   end
   

@@ -25,6 +25,7 @@
       <th>Full Name</th>
       <th>Email</th>
       <th>Last sign in at</th>
+	  <th>Status</th>
 	  <th>Created at</th>
     </tr>
   </thead>
@@ -35,6 +36,7 @@
         <td><%= link_to employee, employee %></td>
         <td><%= employee.email %></td>
         <td><%= employee.try(:last_sign_in_at).try(:strftime, "%b %d, %Y") %></td>
+		<td><%= employee.status_to_s %></td>
         <td><%= employee.created_at.strftime("%b %d, %Y") %></td>
       </tr>
     <% end %>
