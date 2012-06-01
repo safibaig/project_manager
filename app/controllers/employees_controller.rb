@@ -5,6 +5,10 @@ class EmployeesController < ApplicationController
   
   def index
     @employees = User.search(params)
+    respond_to do |format|
+      format.html
+      format.json {render :json => @employees.map(&:attributes)}  
+    end
   end
 
   def show

@@ -25,8 +25,10 @@ class Project < ActiveRecord::Base
   has_many :employments
   has_many :suppliers, :through => :employments
   has_many :archives
+  has_many :assignments
+  has_many :employees, :through => :assignments, :source => :user
   
-  attr_reader :supplier_tokens
+  attr_reader :supplier_tokens, :employee_tokens
   
   validates :name, :project_manager, :status, :kind,
             :lead_source, :estimation, :presence => true
@@ -75,6 +77,10 @@ class Project < ActiveRecord::Base
   
   def supplier_tokens=(ids)
     self.supplier_ids = ids.split(",")
+  end
+  
+  def employee_tokens=(ids)
+    self.employee_ids = ids.split(",")
   end
   
   def self.search(params={})

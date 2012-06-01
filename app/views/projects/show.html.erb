@@ -65,7 +65,14 @@
 <div class="row-fluid">
 	<div class="span4">
 		<div class="well">
-			GANTT CHART
+			<ul class="nav nav-list">
+				<li class="nav-header">Employees (<%= @project.employees.count %>)</li>
+				<% @project.employees.each do |employee| %>
+					<li>
+					<%= link_to employee, employee %>
+					</li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 	<div class="span7">

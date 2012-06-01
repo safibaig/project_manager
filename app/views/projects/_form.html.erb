@@ -73,6 +73,9 @@
 			<%= f.label :image, "Logo" %>
 			<%= f.file_field :image %>
 		</div>
+		<div class="span4">
+			<%= f.input :employee_tokens, :input_html => { "data-employees" => @project.employees.map(&:attributes).to_json }, :label => "Employees" %>		
+		</div>
 	</div>
 	
 	<div class="row-fluid">

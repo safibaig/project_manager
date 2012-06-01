@@ -47,6 +47,14 @@ $ ->
 		preventDuplicates: true
 	})
 	
+	$('#project_employee_tokens').tokenInput("/employees.json", {
+		crossDomain: false
+		theme: "facebook"
+		hintText: "Type the employees"
+		prePopulate: $('#project_employee_tokens').data('employees')
+		preventDuplicates: true
+	})
+	
 	$(".calendar").datepicker({
 		dateFormat: "yy-mm-dd"
 	})
