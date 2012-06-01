@@ -88,7 +88,15 @@
 			</ul>
 		</div>
 		<div class="well">
-			DOCUMENTS, PRESENTATION, ETC
+			<strong>Total files: (<%= pluralize @project.archives.size, 'archive' %>)</strong>
+			<%= link_to '#new_archive_form', "data-toggle" => 'modal', :class => "pull-right btn btn-primary btn-mini" do %>
+				<i class="icon-plus icon-white"></i> New File
+			<% end %>
+			<br /><br />
+			<ul id="archives">
+				<%= render @project.archives %>	
+			</ul>
+		
 		</div>
 	</div>
 	<div class="span7">
@@ -116,6 +124,23 @@
   </div>
   <div class="modal-footer">
 	<%= f.submit "Post comment", :class => "btn btn-success" %>
+	<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  <% end %>
+  </div>
+</div>
+
+<div class="modal hide fade" id="new_archive_form">
+  <div class="modal-header">
+    <a class="close" href="#" data-dismiss="modal">&times;</a>
+    <h3>New Archive for <%= @project.name %></h3>
+  </div>
+  <%= simple_form_for([@project, Archive.new], :html => {:multipart => true}) do |f| %>
+  <div class="modal-body">
+	<%= f.label :file, "Select a file" %>
+	<%= f.file_field :file %>
+  </div>
+  <div class="modal-footer">
+	<%= f.submit "Upload file", :class => "btn btn-success" %>
 	<a href="#" class="btn" data-dismiss="modal">Cancel</a>
   <% end %>
   </div>

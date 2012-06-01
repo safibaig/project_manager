@@ -1,0 +1,6 @@
+<li class="<%= archive.extension %>">
+	<%= link_to "&times;".html_safe, archive_path(archive), :class => "close", :method => :delete %>
+	<%= link_to archive.file_url, :target => "_blank" do %>
+		<%= archive.base_name %>
+	<% end %>
+</li>

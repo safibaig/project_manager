@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530202856) do
+ActiveRecord::Schema.define(:version => 20120601023816) do
+
+  create_table "archives", :force => true do |t|
+    t.string   "file"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "business_units", :force => true do |t|
     t.string   "name"

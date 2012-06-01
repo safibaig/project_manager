@@ -24,6 +24,7 @@ class Project < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :employments
   has_many :suppliers, :through => :employments
+  has_many :archives
   
   attr_reader :supplier_tokens
   

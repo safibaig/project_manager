@@ -21,7 +21,10 @@ ProjectManager::Application.routes.draw do
   
   match 'home' => 'pages#home', :as => :home
   
+  resources :archives, :only => :destroy
+  
   resources :projects do
+    resources :archives, :only => [:create]
     collection do
       get '/internal', :action => :internal, :as => :internal
       get '/external', :action => :external, :as => :external

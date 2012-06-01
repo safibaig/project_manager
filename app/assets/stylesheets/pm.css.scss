@@ -355,3 +355,33 @@ div.center {
 	text-align:center;
 }
 
+#archives {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+.docx, .doc {
+	padding-left: 16px;
+	background-image: url(/assets/doc.png);
+	background-repeat: no-repeat;
+}
+
+.xlsx, .xls {
+	padding-left: 16px;
+	background-image: url(/assets/xlsx.png);
+	background-repeat: no-repeat;
+}
+
+.pdf {
+	padding-left: 16px;
+	background-image: url(/assets/pdf.png);
+	background-repeat: no-repeat;
+}
+
+.gif, .jpeg, .jpg, .png {
+	padding-left: 16px;
+	background-image: url(/assets/ics.png);
+	background-repeat: no-repeat;
+}
+
