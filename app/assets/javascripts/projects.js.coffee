@@ -47,7 +47,7 @@ $ ->
 		preventDuplicates: true
 	})
 	
-	$('#project_employee_tokens').tokenInput("/employees.json", {
+	$('#project_employee_tokens').tokenInput("/users.json", {
 		crossDomain: false
 		theme: "facebook"
 		hintText: "Type the employees"
