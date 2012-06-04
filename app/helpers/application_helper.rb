@@ -38,7 +38,7 @@ module ApplicationHelper
     projects_array << projects.potential.count
     projects_array << projects.operation.count
     projects_array << projects.delivered.count
-    projects_array
+    projects_array.to_a
   end
   
 end
