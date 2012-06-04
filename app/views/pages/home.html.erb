@@ -1,5 +1,6 @@
 <div class="" style="text-align:center">
-  	<h2>Welcome, <%= current_user %></h2>
+  	<h2>Welcome, <%= current_user %> | <%= Time.now.strftime("%B %d, %Y") %></h2>
+ 	<br />
 	<div id="general_management" data-software-count="<%= @projects_software.count %>"
 								 data-bp-count="<%= @projects_business_planning.count %>"
 								 data-gd-count="<%= @projects_graphic_design.count %>"
@@ -13,8 +14,17 @@
 								 data-total-count="<%= @external_projects %>">
 								 
 	</div>
-	<br />
-	<div id="milestones_status">
+	<br /><br />
+	<div id="business_units_graph"  data-software-count="<%= @projects_software.count %>"
+								 	data-bp-count="<%= @projects_business_planning.count %>"
+									data-gd-count="<%= @projects_graphic_design.count %>"
+									data-id-count="<%= @projects_industrial_design.count %>"
+									data-rd-count="<%= @projects_r_and_d.count %>"
+									data-lost="<%= project_status @projects_lost %>"
+									data-potential="<%= project_status  @projects_potential %>"
+									data-billed="<%= project_status @projects_billed %>"
+									data-paid="<%= project_status @projects_paid %>"
+									data-total-count="<%= @external_projects %>">
 		
 	</div>
 </div>

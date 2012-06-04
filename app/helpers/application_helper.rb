@@ -41,4 +41,14 @@ module ApplicationHelper
     projects_array
   end
   
+  def project_status(projects)
+    projects_array = ""
+    projects_array << "#{projects.business_planning.count},"
+    projects_array << "#{projects.graphic_design.count},"
+    projects_array << "#{projects.industrial_design.count},"
+    projects_array << "#{projects.software.count},"
+    projects_array << "#{projects.research_and_development.count}"
+    projects_array
+  end
+  
 end
