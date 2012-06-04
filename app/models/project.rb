@@ -47,6 +47,56 @@ class Project < ActiveRecord::Base
     order("created_at DESC").limit(5)
   }
   
+  scope :graphic_design, lambda {
+    where(:business_unit_id => 1)
+  }
+  
+  scope :software, lambda {
+    where(:business_unit_id => 2)
+  }
+  
+  scope :industrial_design, lambda {
+    where(:business_unit_id => 3)
+  }
+  
+  scope :business_planning, lambda {
+    where(:business_unit_id => 4)
+  }
+  
+  scope :research_and_development, lambda {
+    where(:business_unit_id => 5)
+  }
+  
+  scope :canceled, lambda {
+    where(:status => 0)
+  }
+  
+  scope :quick_look, lambda {
+    where(:status => 1)
+  }
+  
+  scope :proposal_development, lambda {
+    where(:status => 2)
+  }
+  
+  scope :proposal_delivered, lambda {
+    where(:status => 3)
+  }
+  
+  scope :operation, lambda {
+    where(:status => 4)
+  }
+  
+  scope :delivered, lambda {
+    where(:status => 5)
+  }
+  
+  scope :potential, lambda {
+    where("status = ? OR status = ? OR status = ?", "1", "2", "3")
+  }
+  
+  scope :source, lambda { |source| where(:lead_source => source)}
+  
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
   
   KINDS = [["Internal", "Internal"],
