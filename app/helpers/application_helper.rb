@@ -57,40 +57,55 @@ module ApplicationHelper
   
   def employees_bp(employees)
     comma_separated = []
+    array = []
     employees.each do |employee|
-      comma_separated << employee.projects.business_planning.count
+      array = employee.managing_projects.business_planning.running + employee.projects.business_planning.running
+      array.uniq!
+      comma_separated << array.count
     end
     comma_separated.join(",")
   end
   
   def employees_gd(employees)
     comma_separated = []
+    array = []
     employees.each do |employee|
-      comma_separated << employee.projects.graphic_design.count
+      array = employee.managing_projects.graphic_design.running + employee.projects.graphic_design.running
+      array.uniq!
+      comma_separated << array.count
     end
     comma_separated.join(",")
   end
   
   def employees_id(employees)
     comma_separated = []
+    array = []
     employees.each do |employee|
-      comma_separated << employee.projects.industrial_design.count
+      array = employee.managing_projects.industrial_design.running + employee.projects.industrial_design.running
+      array.uniq!
+      comma_separated << array.count
     end
     comma_separated.join(",")
   end
   
   def employees_software(employees)
     comma_separated = []
+    array = []
     employees.each do |employee|
-      comma_separated << employee.projects.software.count
+      array = employee.managing_projects.software.running + employee.projects.software.running
+      array.uniq!
+      comma_separated << array.count
     end
     comma_separated.join(",")
   end
   
   def employees_rd(employees)
     comma_separated = []
+    array = []
     employees.each do |employee|
-      comma_separated << employee.projects.research_and_development.count
+      array = employee.managing_projects.research_and_development.running + employee.projects.research_and_development.running
+      array.uniq!
+      comma_separated << array.count
     end
     comma_separated.join(",")
   end

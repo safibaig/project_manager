@@ -97,4 +97,8 @@ class User < ActiveRecord::Base
      "#{self.street}, #{self.city} #{self.state}"
   end
   
+  def all_projects
+    
+  end
+  
 end

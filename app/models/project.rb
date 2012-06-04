@@ -95,6 +95,10 @@ class Project < ActiveRecord::Base
     where("status = ? OR status = ? OR status = ?", "1", "2", "3")
   }
   
+  scope :running, lambda {
+    where("status = ? OR status = ? OR status = ? OR status = ?", "1", "2", "3", "4")
+  }
+  
   scope :source, lambda { |source| where(:lead_source => source)}
   
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
