@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_one :prospect
   has_many :assignments
-  has_many :managing_projects, :through => :assignments, :source => :project
+  has_many :assigned_projects, :through => :assignments, :source => :project
+  has_many :managing_projects, :class_name => "Project", :source => :project, :foreign_key => "project_manager_id"
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -98,7 +99,47 @@ class User < ActiveRecord::Base
   end
   
   def all_projects
-    
+    (self.projects + self.assigned_projects + self.managing_projects).uniq
   end
+  
+  def all_unique_business_planning_projects
+    (self.rsend(:assigned_projects, :business_planning, :running) +
+    self.rsend(:projects, :business_planning, :running) + 
+    self.rsend(:managing_projects, :business_planning, :running)).uniq
+  end
+  
+  def all_unique_graphic_design_projects
+    (self.rsend(:assigned_projects, :graphic_design, :running) +
+    self.rsend(:projects, :graphic_design, :running) + 
+    self.rsend(:managing_projects, :graphic_design, :running)).uniq
+  end
+  
+  def all_unique_industrial_design_projects
+    (self.rsend(:assigned_projects, :industrial_design, :running) +
+    self.rsend(:projects, :industrial_design, :running) + 
+    self.rsend(:managing_projects, :industrial_design, :running)).uniq
+  end
+  
+  def all_unique_software_projects
+    (self.rsend(:assigned_projects, :software, :running) +
+    self.rsend(:projects, :software, :running) + 
+    self.rsend(:managing_projects, :software, :running)).uniq
+  end
+  
+  def all_unique_r_and_d_projects
+    (self.rsend(:assigned_projects, :research_and_development, :running) +
+    self.rsend(:projects, :research_and_development, :running) + 
+    self.rsend(:managing_projects, :research_and_development, :running)).uniq
+  end
+
+  def rsend(*args, &block)
+    obj = self
+    args.each do |a|
+      b = (a.is_a?(Array) && a.last.is_a?(Proc) ? a.pop : block)
+      obj = obj.__send__(*a, &b)
+    end
+    obj
+  end
+  alias_method :__rsend__, :rsend
   
 end

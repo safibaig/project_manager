@@ -29,13 +29,12 @@ $ ->
 		prePopulate: $('#project_user_id').data('sales-rep')
 	})
 	
-	$('#project_project_manager').tokenInput("/users.json", {
+	$('#project_project_manager_id').tokenInput("/users.json", {
 		crossDomain: false
 		tokenLimit: 1
 		theme: "facebook"
 		hintText: "Type a project manager"
-		tokenValue: "name"
-		prePopulate: $('#project_project_manager').data('pm')
+		prePopulate: $('#project_project_manager_id').data('pm')
 	})
 	
 	$('#project_supplier_tokens').tokenInput("/suppliers.json", {

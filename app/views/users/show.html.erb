@@ -34,7 +34,7 @@
 		<div class="well">
 			<h3><%= link_to "My Projects", user_projects_path(@user) %></h3>
 			<ul id="client_projects_list">
-				<% @user.projects.recent.each do |project| %>
+				<% @user.all_projects.each do |project| %>
 					<li>
 					<%= link_to project.name.titleize, project %> |
 					<%= project.project_manager %> |

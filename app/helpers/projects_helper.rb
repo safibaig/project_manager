@@ -37,8 +37,8 @@ module ProjectsHelper
     unless @project.user.nil?
      attributes = {}
      array = []
-     attributes[:id] = @project.project_manager
-     attributes[:name] = @project.project_manager
+     attributes[:id] = @project.project_manager_id
+     attributes[:name] = @project.project_manager.try(:name)
      array << attributes
      array.to_json
     end

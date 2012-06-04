@@ -27,6 +27,7 @@ class Project < ActiveRecord::Base
   has_many :archives
   has_many :assignments
   has_many :employees, :through => :assignments, :source => :user
+  belongs_to :project_manager, :class_name => "User", :foreign_key => "project_manager_id"
   
   attr_reader :supplier_tokens, :employee_tokens
   
@@ -139,7 +140,8 @@ class Project < ActiveRecord::Base
   
   def self.search(params={})
     if params[:user_id].present?
-      where("name #{LIKE} ? AND user_id = ?", "%#{params[:search]}%", "#{params[:user_id]}").page(params[:page])
+      user = User.find(params[:user_id])
+      Kaminari.paginate_array(user.all_projects).page(params[:page])
     elsif params[:search].present?
       where("name #{LIKE} ?", "%#{params[:search]}%").page(params[:page])
     else
