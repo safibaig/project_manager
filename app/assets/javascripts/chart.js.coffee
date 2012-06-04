@@ -29,7 +29,7 @@ $ ->
 					if this.point.name
 					  s = '' + this.point.name + ': ' + this.y + ' projects'
 					else
-					  s = '' + this.x + ': ' + this.y
+					  s = '' + this.series.name + ': ' + this.y
 					s
 			}
 			labels: {
@@ -47,6 +47,8 @@ $ ->
 					type: 'column'
 					name: 'Business Planning'
 					data: convert_array_elements_to_integers $('#general_management').data('business')
+					
+					
 				}
 				{
 					type: 'column'
@@ -133,76 +135,70 @@ $ ->
 					if this.point.name
 					  s = '' + this.point.name + ': ' + this.y + ' projects'
 					else
-					  s = '' + this.x + ': ' + this.y
+					  s = '' + this.series.name + ': ' + this.y
 					s
-			}
-			labels: {
-				items: [{
-					html: "Total projects | #{$('#business_units_graph').data('total-count')}"
-					style: {
-						left:'40px'
-						top: '8px'
-						color: 'white'
-					}
-				}]
 			}
 			series: [
 				{
 					type: 'column'
 					name: 'Lost Projects'
 					data: convert_array_elements_to_integers $('#business_units_graph').data('lost')
+					color: '#df5353'
 				}
 				{
 					type: 'column'
 					name: 'Potential Projects'
 					data: convert_array_elements_to_integers $('#business_units_graph').data('potential')
+					color: '#dddf0d'
 				}
 				{
 					type: 'column'
 					name: 'Billed Projects'
 					data: convert_array_elements_to_integers $('#business_units_graph').data('billed')
+					color: '#55bf3b'
 				}
 				{
 					type: 'column'
 					name: 'Paid Projects'
 					data: convert_array_elements_to_integers $('#business_units_graph').data('paid')
+					color: '#7798bf'
 				}
-				{
-					type: 'pie'
-					name: "Total Projects"
-					data:[
-						{
-							name: 'Business Planning'
-							y: $('#business_units_graph').data('bp-count')
-							color: '#dddf0d'
-						}
-						{
-							name: 'Graphic Design'
-							y: $('#business_units_graph').data('gd-count')
-							color: '#7798bf'
-						}
-						{
-							name: 'Industrial Design'
-							y: $('#business_units_graph').data('id-count')
-							color: '#55bf3b'
-						}
-						{
-							name: 'Software'
-							y: $('#business_units_graph').data('software-count')
-							color: '#df5353'
-						}
-						{
-							name: 'Research & Development'
-							y: $('#business_units_graph').data('rd-count')
-							color: '#aaeeee'
-						}
-					]
-					center: [100, 80]
-					size: 100
-					showInLegend: false
-					dataLabels: {
-						enabled: false
-					}
-				}
+				# {
+				# 					type: 'pie'
+				# 					name: "Total Projects"
+				# 					data:[
+				# 						{
+				# 							name: 'Business Planning'
+				# 							y: $('#business_units_graph').data('bp-count')
+				# 							color: '#dddf0d'
+				# 						}
+				# 						{
+				# 							name: 'Graphic Design'
+				# 							y: $('#business_units_graph').data('gd-count')
+				# 							color: '#7798bf'
+				# 						}
+				# 						{
+				# 							name: 'Industrial Design'
+				# 							y: $('#business_units_graph').data('id-count')
+				# 							color: '#55bf3b'
+				# 						}
+				# 						{
+				# 							name: 'Software'
+				# 							y: $('#business_units_graph').data('software-count')
+				# 							color: '#df5353'
+				# 						}
+				# 						{
+				# 							name: 'Research & Development'
+				# 							y: $('#business_units_graph').data('rd-count')
+				# 							color: '#aaeeee'
+				# 						}
+				# 					]
+				# 					center: [100, 80]
+				# 					size: 100
+				# 					showInLegend: false
+				# 					dataLabels: {
+				# 						enabled: false
+				# 					}
+				# 				}
 			]
 		})
