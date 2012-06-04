@@ -1,4 +1,9 @@
 $ ->
+	convert_array_elements_to_integers = (string)->
+		array = string.split(",")
+		array.map (i)->
+			parseInt(i, 10)
+	
 	chart = ''
 	$(document).ready ->
 		chart = new Highcharts.Chart({
@@ -34,22 +39,22 @@ $ ->
 				{
 					type: 'column'
 					name: 'Business Planning'
-					data: $('#general_management').data('business')
+					data: convert_array_elements_to_integers $('#general_management').data('business')
 				}
 				{
 					type: 'column'
 					name: 'Graphic Design'
-					data: $('#general_management').data('gdesign')
+					data: convert_array_elements_to_integers $('#general_management').data('gdesign')
 				}
 				{
 					type: 'column'
 					name: 'Industrial Design'
-					data: $('#general_management').data('industrial')
+					data: convert_array_elements_to_integers $('#general_management').data('industrial')
 				}
 				{
 					type: 'column'
 					name: 'Software'
-					data: $('#general_management').data('software')
+					data: convert_array_elements_to_integers $('#general_management').data('software')
 				}
 				{
 					type: 'pie'
