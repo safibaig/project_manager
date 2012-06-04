@@ -14,7 +14,7 @@ $ ->
 				text: 'Project General Management'
 			}
 			xAxis: {
-				categories: ['Lost Projects (0)', 'Potential Projects (1,2,3)', 'Billed Projects (4)', 'Paid Projects (5)']
+				categories: ['Lost Projects', 'Potential Projects', 'Billed Projects', 'Paid Projects']
 			}
 			tooltip: {
 				formatter: ->
@@ -27,7 +27,7 @@ $ ->
 			}
 			labels: {
 				items: [{
-					html: 'Total projects'
+					html: "Total projects | #{$('#general_management').data('total-count')}"
 					style: {
 						left:'40px'
 						top: '8px'
@@ -63,7 +63,7 @@ $ ->
 				}
 				{
 					type: 'pie'
-					name: 'Total Projects'
+					name: "Total Projects"
 					data:[
 						{
 							name: 'Business Planning'

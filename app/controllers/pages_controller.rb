@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!
   
   def home
+    @external_projects = Project.external.count
     @projects_business_planning = Project.business_planning
     @projects_graphic_design = Project.graphic_design
     @projects_industrial_design = Project.industrial_design
