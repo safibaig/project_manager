@@ -12,5 +12,6 @@ class PagesController < ApplicationController
     @projects_potential = Project.potential
     @projects_billed = Project.operation
     @projects_paid = Project.delivered
+    @employees = User.all
   end
 end

@@ -4,6 +4,15 @@ $ ->
 		array.map (i)->
 			parseInt(i, 10)
 	
+	convert_to_array = (string) ->
+		array = string.split(",")
+		array
+	
+	parse_pipe_array = (string) ->
+		array = string.split("|")
+		array.map(e) ->
+			console.log(e.split(","))
+	
 	#G0.0
 	chart = ''
 	$(document).ready ->
@@ -110,7 +119,7 @@ $ ->
 			]
 		})
 	
-	#BusinessUnits
+	#BusinessUnits G1.0
 	chart = ''
 	$(document).ready ->
 		chart = new Highcharts.Chart({
@@ -163,42 +172,64 @@ $ ->
 					data: convert_array_elements_to_integers $('#business_units_graph').data('paid')
 					color: '#7798bf'
 				}
-				# {
-				# 					type: 'pie'
-				# 					name: "Total Projects"
-				# 					data:[
-				# 						{
-				# 							name: 'Business Planning'
-				# 							y: $('#business_units_graph').data('bp-count')
-				# 							color: '#dddf0d'
-				# 						}
-				# 						{
-				# 							name: 'Graphic Design'
-				# 							y: $('#business_units_graph').data('gd-count')
-				# 							color: '#7798bf'
-				# 						}
-				# 						{
-				# 							name: 'Industrial Design'
-				# 							y: $('#business_units_graph').data('id-count')
-				# 							color: '#55bf3b'
-				# 						}
-				# 						{
-				# 							name: 'Software'
-				# 							y: $('#business_units_graph').data('software-count')
-				# 							color: '#df5353'
-				# 						}
-				# 						{
-				# 							name: 'Research & Development'
-				# 							y: $('#business_units_graph').data('rd-count')
-				# 							color: '#aaeeee'
-				# 						}
-				# 					]
-				# 					center: [100, 80]
-				# 					size: 100
-				# 					showInLegend: false
-				# 					dataLabels: {
-				# 						enabled: false
-				# 					}
-				# 				}
+			]
+		})
+
+	chart = ''
+	$(document).ready ->
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'employees_projects'
+				type: 'column'
+			}
+			title: {
+				text: 'Type of projects by employees'
+			}
+			xAxis: {
+				categories: convert_to_array $('#employees_projects').data('employees')
+			}
+			yAxis: {
+				min: 0
+				title: {
+					text: 'Total of projects'
+				}
+				stackLabels: {
+					enabled: true
+					style: {
+						fontWeight: 'bold'
+						color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+					}
+				}
+			}
+			plotOptions: {
+                column: {
+                    stacking: 'normal'
+                    dataLabels: {
+                        enabled: false
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                    }
+                }
+            }
+			series: [
+				{
+					name: 'Business Planning'
+					data: convert_array_elements_to_integers $('#employees_projects').data('employees-bp')
+				}
+				{
+					name: 'Graphic Design'
+					data: convert_array_elements_to_integers $('#employees_projects').data('employees-gd')
+				}
+				{
+					name: 'Industrial Design'
+					data: convert_array_elements_to_integers $('#employees_projects').data('employees-id')
+				}
+				{
+					name: 'Software'
+					data: convert_array_elements_to_integers $('#employees_projects').data('employees-software')
+				}
+				{
+					name: 'Research & Development'
+					data: convert_array_elements_to_integers $('#employees_projects').data('employees-rd')
+				}
 			]
 		})

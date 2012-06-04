@@ -51,4 +51,48 @@ module ApplicationHelper
     projects_array
   end
   
+  def employees_names(employees)
+    employees.map(&:name).join(",")
+  end
+  
+  def employees_bp(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.projects.business_planning.count
+    end
+    comma_separated.join(",")
+  end
+  
+  def employees_gd(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.projects.graphic_design.count
+    end
+    comma_separated.join(",")
+  end
+  
+  def employees_id(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.projects.industrial_design.count
+    end
+    comma_separated.join(",")
+  end
+  
+  def employees_software(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.projects.software.count
+    end
+    comma_separated.join(",")
+  end
+  
+  def employees_rd(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.projects.research_and_development.count
+    end
+    comma_separated.join(",")
+  end
+  
 end
