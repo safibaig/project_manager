@@ -57,6 +57,11 @@ $ ->
 					data: convert_array_elements_to_integers $('#general_management').data('software')
 				}
 				{
+					type: 'column'
+					name: 'Research & Development'
+					data: convert_array_elements_to_integers $('#general_management').data('rd')
+				}
+				{
 					type: 'pie'
 					name: 'Total Projects'
 					data:[
@@ -79,6 +84,11 @@ $ ->
 							name: 'Software'
 							y: $('#general_management').data('software-count')
 							color: '#df5353'
+						}
+						{
+							name: 'Research & Development'
+							y: $('#general_management').data('rd-count')
+							color: '#aaeeee'
 						}
 					]
 					center: [100, 80]

@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @projects_graphic_design = Project.graphic_design
     @projects_industrial_design = Project.industrial_design
     @projects_software = Project.software
+    @projects_r_and_d = Project.research_and_development
     @project_source_website = Project.source("Website")
     @project_source_facebook = Project.source("Facebook")
     @project_source_twitter = Project.source("Twitter")
@@ -17,6 +18,5 @@ class PagesController < ApplicationController
     @project_source_employees = Project.source("Employees")
     @project_source_lab = Project.source("Innovative Lab")
     @project_source_phone = Project.source("Phone")
-    #@projects_r_and_d = Project.research_and_development
   end
 end
