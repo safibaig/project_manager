@@ -33,12 +33,12 @@ module ApplicationHelper
   end
   
   def project_status_business(projects)
-    projects_array = []
-    projects_array << projects.canceled.count
-    projects_array << projects.potential.count
-    projects_array << projects.operation.count
-    projects_array << projects.delivered.count
-    projects_array.to_a
+    projects_array = ""
+    projects_array << "#{projects.canceled.count},"
+    projects_array << "#{projects.potential.count},"
+    projects_array << "#{projects.operation.count},"
+    projects_array << "#{projects.delivered.count}"
+    projects_array.split(",").collect{|i| i.to_i}
   end
   
 end
