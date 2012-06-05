@@ -54,4 +54,18 @@
 								 data-rd="<%= @bu_r_and_d %>">
 		
 	</div>
+	<br /><br />
+	<div id="general_management_money" data-software-count="<%= @projects_software.estimation_sum %>"
+								 data-bp-count="<%= @projects_business_planning.estimation_sum %>"
+								 data-gd-count="<%= @projects_graphic_design.estimation_sum %>"
+								 data-id-count="<%= @projects_industrial_design.estimation_sum %>"
+								 data-rd-count="<%= @projects_r_and_d.estimation_sum %>"
+								 data-business="<%= project_status_money_bp @projects_business_planning %>"
+								 data-industrial="<%= project_status_money_id  @projects_industrial_design %>"
+								 data-software="<%= project_status_money_software @projects_software %>"
+								 data-gdesign="<%= project_status_money_gd @projects_graphic_design %>"
+								 data-rd="<%= project_status_money_rd @projects_r_and_d %>">
+								 
+	</div>
+	
 </div>

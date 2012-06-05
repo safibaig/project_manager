@@ -51,6 +51,51 @@ module ApplicationHelper
     projects_array
   end
   
+  def project_status_money_bp(projects)
+    projects_array = ""
+    projects_array << "#{projects.canceled.estimation_sum},"
+    projects_array << "#{projects.potential.estimation_sum},"
+    projects_array << "#{projects.operation.estimation_sum},"
+    projects_array << "#{projects.delivered.estimation_sum}"
+    projects_array
+  end
+  
+  def project_status_money_gd(projects)
+    projects_array = ""
+    projects_array << "#{projects.canceled.estimation_sum},"
+    projects_array << "#{projects.potential.estimation_sum},"
+    projects_array << "#{projects.operation.estimation_sum},"
+    projects_array << "#{projects.delivered.estimation_sum}"
+    projects_array
+  end
+  
+  def project_status_money_id(projects)
+    projects_array = ""
+    projects_array << "#{projects.canceled.estimation_sum},"
+    projects_array << "#{projects.potential.estimation_sum},"
+    projects_array << "#{projects.operation.estimation_sum},"
+    projects_array << "#{projects.delivered.estimation_sum}"
+    projects_array
+  end
+  
+  def project_status_money_software(projects)
+    projects_array = ""
+    projects_array << "#{projects.canceled.estimation_sum},"
+    projects_array << "#{projects.potential.estimation_sum},"
+    projects_array << "#{projects.operation.estimation_sum},"
+    projects_array << "#{projects.delivered.estimation_sum}"
+    projects_array
+  end
+  
+  def project_status_money_rd(projects)
+    projects_array = ""
+    projects_array << "#{projects.canceled.estimation_sum},"
+    projects_array << "#{projects.potential.estimation_sum},"
+    projects_array << "#{projects.operation.estimation_sum},"
+    projects_array << "#{projects.delivered.estimation_sum}"
+    projects_array
+  end
+  
   def employees_names(employees)
     employees.map(&:name).join(",")
   end

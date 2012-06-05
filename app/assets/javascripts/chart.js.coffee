@@ -28,7 +28,7 @@ $ ->
 		while Math.floor((num.length - (1 + i)) / 3) > i
 			num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3))
 			i++
-		(((if sign then '-' else '')) + '$' + num + '.' + cents)
+		(((if sign then '-' else '')) + '$' + num)
 	
 	#G0.0
 	chart = ''
@@ -314,6 +314,7 @@ $ ->
 			]
 		})
 
+	#G4.0
 	chart = ''
 	$(document).ready ->
 		chart = new Highcharts.Chart({
@@ -376,6 +377,76 @@ $ ->
 					type: 'column'
 					name: 'Research & Development'
 					data:  [$('#business_unit_suppliers').data('rd')]
+				}
+			]
+		})
+
+	#G0.0.1
+	chart = ''
+	$(document).ready ->
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'general_management_money'
+			}
+			title: {
+				text: '$$ by Status by Unit'
+			}
+			xAxis: {
+				categories: ['Lost Projects', 'Potential Projects', 'Billed Projects', 'Paid Projects']
+			}
+			yAxis: {
+                min: 0,
+                title: {
+                    text: '# of Projects'
+                }
+            }
+			plotOptions: {
+                column: {
+                    stacking: ''
+                    dataLabels: {
+                        enabled: true
+                        color: 'white'
+                        formatter: ->
+	                        to_currency this.y if this.y > 0
+                    }
+                }
+            }
+			tooltip: {
+				formatter: ->
+					s = ''
+					if this.point.name
+					  s = '' + this.point.name + ': ' + to_currency this.y
+					else
+					  s = '' + this.series.name + ': ' + to_currency this.y
+					s
+			}
+			series: [
+				{
+					type: 'column'
+					name: 'Business Planning'
+					data: convert_array_elements_to_integers $('#general_management_money').data('business')
+
+
+				}
+				{
+					type: 'column'
+					name: 'Graphic Design'
+					data: convert_array_elements_to_integers $('#general_management_money').data('gdesign')
+				}
+				{
+					type: 'column'
+					name: 'Industrial Design'
+					data: convert_array_elements_to_integers $('#general_management_money').data('industrial')
+				}
+				{
+					type: 'column'
+					name: 'Software'
+					data: convert_array_elements_to_integers $('#general_management_money').data('software')
+				}
+				{
+					type: 'column'
+					name: 'Research & Development'
+					data: convert_array_elements_to_integers $('#general_management_money').data('rd')
 				}
 			]
 		})

@@ -148,5 +148,6 @@ class Project < ActiveRecord::Base
       page(params[:page])
     end
   end
+
   
 end
