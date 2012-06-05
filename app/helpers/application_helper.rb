@@ -63,10 +63,26 @@ module ApplicationHelper
     comma_separated.join(",")
   end
   
+  def employees_bp_money(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.project_estimation_sum(:all_unique_business_planning_projects)
+    end
+    comma_separated.join(",")
+  end
+  
   def employees_gd(employees)
     comma_separated = []
     employees.each do |employee|
       comma_separated << employee.all_unique_graphic_design_projects.count
+    end
+    comma_separated.join(",")
+  end
+  
+  def employees_gd_money(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.project_estimation_sum(:all_unique_graphic_design_projects)
     end
     comma_separated.join(",")
   end
@@ -79,6 +95,14 @@ module ApplicationHelper
     comma_separated.join(",")
   end
   
+  def employees_id_money(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.project_estimation_sum(:all_unique_industrial_design_projects)
+    end
+    comma_separated.join(",")
+  end
+  
   def employees_software(employees)
     comma_separated = []
     employees.each do |employee|
@@ -87,10 +111,26 @@ module ApplicationHelper
     comma_separated.join(",")
   end
   
+  def employees_software_money(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.project_estimation_sum(:all_unique_software_projects)
+    end
+    comma_separated.join(",")
+  end
+  
   def employees_rd(employees)
     comma_separated = []
     employees.each do |employee|
       comma_separated << employee.all_unique_r_and_d_projects.count
+    end
+    comma_separated.join(",")
+  end
+  
+  def employees_rd_money(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.project_estimation_sum(:all_unique_r_and_d_projects)
     end
     comma_separated.join(",")
   end

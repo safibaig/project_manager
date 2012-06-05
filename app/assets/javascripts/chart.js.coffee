@@ -13,6 +13,23 @@ $ ->
 		array.map(e) ->
 			console.log(e.split(","))
 	
+	#Transforms the number into currency
+	to_currency = (num) ->
+		num = num.toString().replace(/\$|\,/g, '')
+		if (isNaN(num)) 
+			num = "0"
+		sign = (num == (num = Math.abs(num)))
+		num = Math.floor(num * 100 + 0.50000000001)
+		cents = num % 100
+		num = Math.floor(num / 100).toString()
+		if (cents < 10) 
+			cents = "0" + cents
+		i = 0
+		while Math.floor((num.length - (1 + i)) / 3) > i
+			num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3))
+			i++
+		(((if sign then '-' else '')) + '$' + num + '.' + cents)
+	
 	#G0.0
 	chart = ''
 	$(document).ready ->
@@ -175,6 +192,7 @@ $ ->
 			]
 		})
 
+	#G2.0
 	chart = ''
 	$(document).ready ->
 		chart = new Highcharts.Chart({
@@ -233,3 +251,65 @@ $ ->
 				}
 			]
 		})
+		
+		#G2.1
+		chart = ''
+		$(document).ready ->
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'employees_projects_money'
+					type: 'column'
+				}
+				title: {
+					text: 'Type of projects by employees'
+				}
+				xAxis: {
+					categories: convert_to_array $('#employees_projects_money').data('employees')
+				}
+				yAxis: {
+					min: 0
+					title: {
+						text: 'Total of projects'
+					}
+					stackLabels: {
+						enabled: true
+						style: {
+							fontWeight: 'bold'
+							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+						}
+						formatter: ->
+							to_currency this.total
+					}
+				}
+				plotOptions: {
+	                column: {
+	                    stacking: 'normal'
+	                    dataLabels: {
+	                        enabled: false
+	                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+	                    }
+	                }
+	            }
+				series: [
+					{
+						name: 'Business Planning'
+						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-bp-money')
+					}
+					{
+						name: 'Graphic Design'
+						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-gd-money')
+					}
+					{
+						name: 'Industrial Design'
+						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-id-money')
+					}
+					{
+						name: 'Software'
+						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-software-money')
+					}
+					{
+						name: 'Research & Development'
+						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-rd-money')
+					}
+				]
+			})

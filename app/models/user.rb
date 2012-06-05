@@ -90,8 +90,8 @@ class User < ActiveRecord::Base
     end
   end
   
-  def project_estimation_sum
-    projects.map(&:estimation).inject(:+)
+  def project_estimation_sum(method)
+    self.send(method).map(&:estimation).inject(:+) || 0
   end
   
   def address
