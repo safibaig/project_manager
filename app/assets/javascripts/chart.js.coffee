@@ -332,6 +332,15 @@ $ ->
                     text: '# of Projects'
                 }
             }
+			plotOptions: {
+                column: {
+                    stacking: ''
+                    dataLabels: {
+                        enabled: true
+                        color: 'white'
+                    }
+                }
+            }
 			tooltip: {
 				formatter: ->
 					s = ''
