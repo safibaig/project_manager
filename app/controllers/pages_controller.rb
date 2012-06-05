@@ -13,5 +13,10 @@ class PagesController < ApplicationController
     @projects_billed = Project.operation
     @projects_paid = Project.delivered
     @employees = User.all
+    @bu_business_planning = BusinessUnit.find(1).suppliers.count
+    @bu_graphic_design = BusinessUnit.find(2).suppliers.count
+    @bu_industrial_design = BusinessUnit.find(3).suppliers.count
+    @bu_software = BusinessUnit.find(4).suppliers.count
+    @bu_r_and_d = BusinessUnit.find(5).suppliers.count
   end
 end

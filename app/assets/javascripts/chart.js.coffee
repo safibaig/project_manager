@@ -252,64 +252,121 @@ $ ->
 			]
 		})
 		
-		#G2.1
-		chart = ''
-		$(document).ready ->
-			chart = new Highcharts.Chart({
-				chart: {
-					renderTo: 'employees_projects_money'
-					type: 'column'
-				}
+	#G2.1
+	chart = ''
+	$(document).ready ->
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'employees_projects_money'
+				type: 'column'
+			}
+			title: {
+				text: '$$ by Employee'
+			}
+			xAxis: {
+				categories: convert_to_array $('#employees_projects_money').data('employees')
+			}
+			yAxis: {
+				min: 0
 				title: {
-					text: 'Type of projects by employees'
+					text: 'Total of projects'
 				}
-				xAxis: {
-					categories: convert_to_array $('#employees_projects_money').data('employees')
+				stackLabels: {
+					enabled: true
+					style: {
+						fontWeight: 'bold'
+						color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+					}
+					formatter: ->
+						to_currency this.total
 				}
-				yAxis: {
-					min: 0
-					title: {
-						text: 'Total of projects'
-					}
-					stackLabels: {
-						enabled: true
-						style: {
-							fontWeight: 'bold'
-							color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-						}
-						formatter: ->
-							to_currency this.total
-					}
+			}
+			plotOptions: {
+                column: {
+                    stacking: 'normal'
+                    dataLabels: {
+                        enabled: false
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                    }
+                }
+            }
+			series: [
+				{
+					name: 'Business Planning'
+					data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-bp-money')
 				}
-				plotOptions: {
-	                column: {
-	                    stacking: 'normal'
-	                    dataLabels: {
-	                        enabled: false
-	                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
-	                    }
-	                }
-	            }
-				series: [
-					{
-						name: 'Business Planning'
-						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-bp-money')
-					}
-					{
-						name: 'Graphic Design'
-						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-gd-money')
-					}
-					{
-						name: 'Industrial Design'
-						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-id-money')
-					}
-					{
-						name: 'Software'
-						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-software-money')
-					}
-					{
-						name: 'Research & Development'
-						data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-rd-money')
-					}
-				]
-			})
+				{
+					name: 'Graphic Design'
+					data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-gd-money')
+				}
+				{
+					name: 'Industrial Design'
+					data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-id-money')
+				}
+				{
+					name: 'Software'
+					data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-software-money')
+				}
+				{
+					name: 'Research & Development'
+					data: convert_array_elements_to_integers $('#employees_projects_money').data('employees-rd-money')
+				}
+			]
+		})
+
+	chart = ''
+	$(document).ready ->
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'business_unit_suppliers'
+			}
+			title: {
+				text: 'Suppliers by Business Unit'
+			}
+			xAxis: {
+				categories: ['Business Planning', 'Graphic Design', 'Industrial Design', 'Software', 'Research & Development']
+			}
+			yAxis: {
+                min: 0,
+                title: {
+                    text: '# of Projects'
+                }
+            }
+			tooltip: {
+				formatter: ->
+					s = ''
+					if this.point.name
+					  s = '' + this.point.name + ': ' + this.y + ' projects'
+					else
+					  s = '' + this.series.name + ': ' + this.y
+					s
+			}
+			series: [
+				{
+					type: 'column'
+					name: 'Business Planning'
+					data:  [$('#business_unit_suppliers').data('bp')]
+
+				}
+				{
+					type: 'column'
+					name: 'Graphic Design'
+					data:  [$('#business_unit_suppliers').data('gd')]
+				}
+				{
+					type: 'column'
+					name: 'Industrial Design'
+					data:  [$('#business_unit_suppliers').data('id')]
+				}
+				{
+					type: 'column'
+					name: 'Software'
+					data:  [$('#business_unit_suppliers').data('software')]
+				}
+				{
+					type: 'column'
+					name: 'Research & Development'
+					data:  [$('#business_unit_suppliers').data('rd')]
+				}
+			]
+		})
