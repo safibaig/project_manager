@@ -257,6 +257,11 @@ $ ->
 						name: 'Research & Development'
 						data: convert_array_elements_to_integers $('#employees_projects').data('employees-rd')
 					}
+					{
+						name: 'Internal'
+						data: convert_array_elements_to_integers $('#employees_projects').data('employees-internal')
+						color: '#dfa60d'
+					}
 				]
 			})
 		

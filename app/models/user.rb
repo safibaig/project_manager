@@ -131,6 +131,12 @@ class User < ActiveRecord::Base
     self.rsend(:projects, :research_and_development, :running) + 
     self.rsend(:managing_projects, :research_and_development, :running)).uniq
   end
+  
+  def all_unique_internal_projects
+    (self.rsend(:assigned_projects, :internal, :running) +
+    self.rsend(:projects, :internal, :running) + 
+    self.rsend(:managing_projects, :internal, :running)).uniq
+  end
 
   def rsend(*args, &block)
     obj = self

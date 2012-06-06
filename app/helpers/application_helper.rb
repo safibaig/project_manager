@@ -180,4 +180,12 @@ module ApplicationHelper
     comma_separated.join(",")
   end
   
+  def employees_internal(employees)
+    comma_separated = []
+    employees.each do |employee|
+      comma_separated << employee.all_unique_internal_projects.count
+    end
+    comma_separated.join(",")
+  end
+
 end
