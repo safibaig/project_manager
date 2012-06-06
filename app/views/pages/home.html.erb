@@ -1,4 +1,4 @@
-<div class="" style="text-align:center">
+<div id="charts" style="text-align:center">
   	<h2>Welcome, <%= current_user %> | <%= Time.now.strftime("%B %d, %Y") %></h2>
  	<br />
 	<div id="general_management" data-software-count="<%= @projects_software.count %>"
@@ -24,7 +24,8 @@
 									data-potential="<%= project_status  @projects_potential %>"
 									data-billed="<%= project_status @projects_billed %>"
 									data-paid="<%= project_status @projects_paid %>"
-									data-total-count="<%= @external_projects %>">
+									data-total-count="<%= @external_projects %>"
+									data-internal-count="<%= @internal_projects.count %>">
 		
 	</div>
 	<br /><br />

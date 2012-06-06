@@ -18,5 +18,6 @@ class PagesController < ApplicationController
     @bu_industrial_design = BusinessUnit.find(3).suppliers.count
     @bu_software = BusinessUnit.find(4).suppliers.count
     @bu_r_and_d = BusinessUnit.find(5).suppliers.count
+    @internal_projects = Project.internal
   end
 end
