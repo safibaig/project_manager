@@ -8,6 +8,12 @@
 			<li class="nav-header">Filter by:</li>
 			<li class="<%= 'active' if params[:action] == 'internal'%>"><%= link_to "Intenal", internal_projects_path %></li>
 			<li class="<%= 'active' if params[:action] == 'external'%>"><%= link_to "External", external_projects_path %></li>
+      <span class="status_link" id="red"><%= link_to "0",   filter_by_status_projects_path(0) , :class => "project_link", :title => "Canceled"%></span>
+      <span class="status_link" id="orange"><%= link_to "1",filter_by_status_projects_path(1) , :class => "project_link", :title => "Quick Look"%></span>
+      <span class="status_link" id="yellow"><%= link_to "2",filter_by_status_projects_path(2) , :class => "project_link", :title => "Proposal Development"%></span>
+      <span class="status_link" id="purple"><%= link_to "3",filter_by_status_projects_path(3) , :class => "project_link", :title => "Proposal Delivered"%></span>
+      <span class="status_link" id="blue"><%= link_to "4",  filter_by_status_projects_path(4) , :class => "project_link", :title => "On Operation"%></span>
+      <span class="status_link" id="green"><%= link_to "5", filter_by_status_projects_path(5) , :class => "project_link", :title => "Delivered & Paid"%></span>
 			<li class="nav-header">Dates:</li>
 			<%= form_tag by_date_range_projects_path, :method => :get do %>
 				<%= text_field_tag 'from', params[:from], :class => 'generic calendar', :placeholder => "From..." %>

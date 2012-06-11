@@ -58,4 +58,4 @@ $ ->
 		dateFormat: "yy-mm-dd"
 	})
 	
-	
+$(".project_link").tooltip('hide')	

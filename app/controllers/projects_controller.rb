@@ -58,5 +58,10 @@ class ProjectsController < ApplicationController
     @projects = Project.by_date_range(params[:from], params[:to]).page(params[:page])
     render :index
   end
-  
+
+  def filter_by_status
+    @projects = Project.by_status(params[:status]).page(params[:page])
+    render :index
+  end  
+
 end

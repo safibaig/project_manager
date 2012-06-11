@@ -104,6 +104,10 @@ class Project < ActiveRecord::Base
   
   scope :by_date_range, lambda { |from, to| where("created_at >= ? AND created_at <= ?", "#{from} 00:00:00", "#{to} 23:59:59")}
   
+  scope :by_status, lambda { |status|
+    where(:status => status)
+  }
+
   KINDS = [["Internal", "Internal"],
            ["External", "External"]]
   

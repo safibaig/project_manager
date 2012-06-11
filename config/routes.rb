@@ -29,6 +29,7 @@ ProjectManager::Application.routes.draw do
       get '/internal', :action => :internal, :as => :internal
       get '/external', :action => :external, :as => :external
       get '/by_date_range', :action => :by_date_range, :as => :by_date_range
+      get "/status/:status", :action => :filter_by_status, :as => :filter_by_status
     end
   end
   resources :prospects do
