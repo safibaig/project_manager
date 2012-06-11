@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604223723) do
+ActiveRecord::Schema.define(:version => 20120611040914) do
 
   create_table "archives", :force => true do |t|
     t.string   "file"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20120604223723) do
     t.string   "image"
     t.text     "description"
     t.integer  "project_manager_id"
+    t.boolean  "paid",               :default => false
   end
 
   create_table "prospects", :force => true do |t|
