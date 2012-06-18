@@ -114,7 +114,11 @@
 			<% end %>
       <br /><br />
       <ul id="archives">
-				<%= render @project.archives %>	
+        <% if @project.archives.count > 0 %>
+          <%= render @project.archives %>	
+        <% else %>
+          <li>No files attached to the project</li>
+        <% end %>
       </ul>
     </div>
   </div>
