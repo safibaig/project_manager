@@ -101,6 +101,10 @@ class User < ActiveRecord::Base
   def all_projects
     (self.projects + self.assigned_projects + self.managing_projects).uniq
   end
+
+  def all_projects_estimation
+    self.all_projects.map(&:estimation).inject(:+).to_f || 0.0
+  end
   
   def all_unique_business_planning_projects
     (self.rsend(:assigned_projects, :business_planning, :running) +
