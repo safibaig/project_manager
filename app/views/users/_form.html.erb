@@ -58,7 +58,10 @@
 
     <div class="row-fluid">
       <div class="span4">
-        <%= f.input :status, :as => :boolean %>
+        <%= f.input :status, :label => "Deactivate", :as => :boolean %>
+      </div>
+      <div class="span4">
+        <%= f.input :employee_since, :as => :string, :input_html => { :class => "generic calendar", :style => "width:77%" } %>
       </div>
     </div>
 
