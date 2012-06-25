@@ -55,7 +55,13 @@
 				<%= f.input :country, :input_html => { :class => "generic map" }, :as => :string %>
 			</div>
 		</div>
-		
+
+    <div class="row-fluid">
+      <div class="span4">
+        <%= f.input :status, :as => :boolean %>
+      </div>
+    </div>
+
 		<div class="form-actions reset-margins-bottom">
 			<%= f.submit "Save", :class => "btn btn-primary" %>
 		</div>
