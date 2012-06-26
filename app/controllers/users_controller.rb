@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      sign_in(@user, :bypass => true)
+      #sign_in(@user, :bypass => true)
       redirect_to @user
     else
       render :edit
