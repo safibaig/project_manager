@@ -57,7 +57,13 @@ class User < ActiveRecord::Base
              ["Female", "Female"]]
              
   mount_uploader :image, ImageUploader
-  
+
+  def self.find_for_authentication(conditions)
+    login = conditions.delete(:email)
+    #where(conditions).where("identificator #{LIKE} ? OR email = ?", "%#{login}", login).first
+    where(conditions).where(["email = :value AND status = :status", { :value => login, :status => 1 }]).first
+  end
+
   def to_s
     "#{self.name} #{self.last_name}".titleize
   end
